@@ -1,0 +1,293 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Dev\\Cursive\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B712F2B6-12C5-462F-B971-12C4A626743A}|Cursive.Shared\\Cursive.Shared.csproj|c:\\dev\\cursive\\src\\cursive.shared\\ioc\\dependencyresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B712F2B6-12C5-462F-B971-12C4A626743A}|Cursive.Shared\\Cursive.Shared.csproj|solutionrelative:cursive.shared\\ioc\\dependencyresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|c:\\dev\\cursive\\src\\cursive.infra\\entitiesconfiguration\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|solutionrelative:cursive.infra\\entitiesconfiguration\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|c:\\dev\\cursive\\src\\cursive.infra\\cursive.infra.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|solutionrelative:cursive.infra\\cursive.infra.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|c:\\dev\\cursive\\src\\cursive.infra\\data\\cursivedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|solutionrelative:cursive.infra\\data\\cursivedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|c:\\dev\\cursive\\src\\cursive.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|solutionrelative:cursive.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|c:\\dev\\cursive\\src\\cursive.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|solutionrelative:cursive.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|c:\\dev\\cursive\\src\\cursive.infra\\cursive.infra.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{81AAD875-F2E6-4736-A9A9-8AEBABE70503}|Cursive.Infra\\Cursive.Infra.csproj|solutionrelative:cursive.infra\\cursive.infra.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\cursive.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\cursive.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|c:\\dev\\cursive\\src\\cursive.api\\cursive.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|solutionrelative:cursive.api\\cursive.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\utils\\guidutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\utils\\guidutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\validations\\validationmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\validations\\validationmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\validations\\validation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\validations\\validation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\entities\\abstractions\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\entities\\abstractions\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|c:\\dev\\cursive\\src\\cursive.domain\\valueobjects\\name.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89008B44-C257-44D5-825D-8E19BF6D2725}|Cursive.Domain\\Cursive.Domain.csproj|solutionrelative:cursive.domain\\valueobjects\\name.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|c:\\dev\\cursive\\src\\cursive.api\\cursive.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{EA77E8C6-8A50-4A8E-B6CC-31C6EB5FFDB2}|Cursive.API\\Cursive.API.csproj|solutionrelative:cursive.api\\cursive.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cursive.Infra.csproj.Backup.tmp",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Cursive.Infra.csproj.Backup.tmp",
+              "RelativeDocumentMoniker": "Cursive.Infra\\Cursive.Infra.csproj.Backup.tmp",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Cursive.Infra.csproj.Backup.tmp",
+              "RelativeToolTip": "Cursive.Infra\\Cursive.Infra.csproj.Backup.tmp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-19T00:50:50.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Cursive.Domain.csproj",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Cursive.Domain.csproj",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Cursive.Domain.csproj",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Cursive.Domain.csproj",
+              "RelativeToolTip": "Cursive.Domain\\Cursive.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-19T00:41:42.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DependencyResolver.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Shared\\IoC\\DependencyResolver.cs",
+              "RelativeDocumentMoniker": "Cursive.Shared\\IoC\\DependencyResolver.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Shared\\IoC\\DependencyResolver.cs",
+              "RelativeToolTip": "Cursive.Shared\\IoC\\DependencyResolver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T00:14:46.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserConfig.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\EntitiesConfiguration\\UserConfig.cs",
+              "RelativeDocumentMoniker": "Cursive.Infra\\EntitiesConfiguration\\UserConfig.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\EntitiesConfiguration\\UserConfig.cs",
+              "RelativeToolTip": "Cursive.Infra\\EntitiesConfiguration\\UserConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T00:05:18.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CursiveDbContext.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Data\\CursiveDbContext.cs",
+              "RelativeDocumentMoniker": "Cursive.Infra\\Data\\CursiveDbContext.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Data\\CursiveDbContext.cs",
+              "RelativeToolTip": "Cursive.Infra\\Data\\CursiveDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T00:03:00.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Entities\\Abstractions\\Entity.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Entities\\Abstractions\\Entity.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Entities\\Abstractions\\Entity.cs",
+              "RelativeToolTip": "Cursive.Domain\\Entities\\Abstractions\\Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:37:45.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Cursive.Infra.csproj",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Cursive.Infra.csproj",
+              "RelativeDocumentMoniker": "Cursive.Infra\\Cursive.Infra.csproj",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Infra\\Cursive.Infra.csproj",
+              "RelativeToolTip": "Cursive.Infra\\Cursive.Infra.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-17T21:34:34.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.API\\Program.cs",
+              "RelativeDocumentMoniker": "Cursive.API\\Program.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.API\\Program.cs",
+              "RelativeToolTip": "Cursive.API\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:34:47.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Cursive.API\\appsettings.json",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.API\\appsettings.json",
+              "RelativeToolTip": "Cursive.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-13T21:36:25.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Cursive.API.csproj",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.API\\Cursive.API.csproj",
+              "RelativeDocumentMoniker": "Cursive.API\\Cursive.API.csproj",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.API\\Cursive.API.csproj",
+              "RelativeToolTip": "Cursive.API\\Cursive.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-19T00:41:23.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Name.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\ValueObjects\\Name.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\ValueObjects\\Name.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\ValueObjects\\Name.cs",
+              "RelativeToolTip": "Cursive.Domain\\ValueObjects\\Name.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:36:56.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Validation.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Validations\\Validation.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Validations\\Validation.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Validations\\Validation.cs",
+              "RelativeToolTip": "Cursive.Domain\\Validations\\Validation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:43:58.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Cursive.API.http",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.API\\Cursive.API.http",
+              "RelativeDocumentMoniker": "Cursive.API\\Cursive.API.http",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.API\\Cursive.API.http",
+              "RelativeToolTip": "Cursive.API\\Cursive.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-12-13T21:36:23.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "Cursive.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:35:47.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ValidationMessage.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Validations\\ValidationMessage.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Validations\\ValidationMessage.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Validations\\ValidationMessage.cs",
+              "RelativeToolTip": "Cursive.Domain\\Validations\\ValidationMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T21:45:19.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GuidUtils.cs",
+              "DocumentMoniker": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Utils\\GuidUtils.cs",
+              "RelativeDocumentMoniker": "Cursive.Domain\\Utils\\GuidUtils.cs",
+              "ToolTip": "C:\\Dev\\Cursive\\src\\Cursive.Domain\\Utils\\GuidUtils.cs",
+              "RelativeToolTip": "Cursive.Domain\\Utils\\GuidUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T22:07:27.397Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
