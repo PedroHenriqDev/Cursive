@@ -12,6 +12,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddSqlServer(builder.Configuration);
+        builder.Services.AddUnitOfWork();
 
         var app = builder.Build();
 
@@ -23,7 +24,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
+        
         app.UseAuthorization();
 
         app.MapControllers();

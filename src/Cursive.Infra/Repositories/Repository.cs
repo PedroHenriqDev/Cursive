@@ -1,4 +1,6 @@
-﻿using Cursive.Domain.Entities.Abstractions;
+﻿using System.Linq.Expressions;
+using Cursive.Domain.Entities;
+using Cursive.Domain.Entities.Abstractions;
 using Cursive.Domain.Repositories.Interfaces;
 using Cursive.Infra.Data;
 using Microsoft.EntityFrameworkCore;
@@ -29,14 +31,14 @@ namespace Cursive.Infra.Repositories
             return await AllNotTracking.ToListAsync();    
         }
 
-        public async Task<TEntity?> GetAsync(Predicate<Func<TEntity, bool>> predicate)
+        public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(predicate);
+            return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
         }
 
-        public Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<TEntity?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<TEntity>().FindAsync(id);
         }
 
         public async Task CreateAsync(TEntity entity)
@@ -57,6 +59,11 @@ namespace Cursive.Infra.Repositories
         public async Task SaveAsync(TEntity entity)
         {
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _dbContext.Set<TEntity>().AnyAsync(predicate);
         }
     }
 }
