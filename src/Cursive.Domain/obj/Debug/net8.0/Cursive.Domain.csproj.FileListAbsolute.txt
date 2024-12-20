@@ -12,3 +12,17 @@ C:\Dev\Cursive\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.dll
 C:\Dev\Cursive\Cursive.Domain\obj\Debug\net8.0\refint\Cursive.Domain.dll
 C:\Dev\Cursive\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.pdb
 C:\Dev\Cursive\Cursive.Domain\obj\Debug\net8.0\ref\Cursive.Domain.dll
+C:\Dev\Cursive\src\Cursive.Domain\bin\Debug\net8.0\Cursive.Domain.deps.json
+C:\Dev\Cursive\src\Cursive.Domain\bin\Debug\net8.0\Cursive.Domain.dll
+C:\Dev\Cursive\src\Cursive.Domain\bin\Debug\net8.0\Cursive.Domain.pdb
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.Validations.Messages.resources
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.csproj.GenerateResource.cache
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.AssemblyInfoInputs.cache
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.AssemblyInfo.cs
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.csproj.CoreCompileInputs.cache
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.sourcelink.json
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.dll
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\refint\Cursive.Domain.dll
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\Cursive.Domain.pdb
+C:\Dev\Cursive\src\Cursive.Domain\obj\Debug\net8.0\ref\Cursive.Domain.dll

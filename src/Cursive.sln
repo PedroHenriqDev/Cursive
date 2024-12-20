@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Infra", "Cursive.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Shared", "Cursive.Shared\Cursive.Shared.csproj", "{B712F2B6-12C5-462F-B971-12C4A626743A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Application", "Cursive.Application\Cursive.Application.csproj", "{6921B061-0870-4916-B658-43C5BFF77F79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B712F2B6-12C5-462F-B971-12C4A626743A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B712F2B6-12C5-462F-B971-12C4A626743A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B712F2B6-12C5-462F-B971-12C4A626743A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6921B061-0870-4916-B658-43C5BFF77F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6921B061-0870-4916-B658-43C5BFF77F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6921B061-0870-4916-B658-43C5BFF77F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6921B061-0870-4916-B658-43C5BFF77F79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

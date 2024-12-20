@@ -1,4 +1,6 @@
 ﻿using Cursive.Infra.Data;
+using Cursive.Infra.UnitOfWork;
+using Cursive.Infra.UnitOfWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,12 @@ public static class DependencyResolver
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException(nameof(configuration));
         serviceCollection.AddDbContext<CursiveDbContext>(opt => opt.UseSqlServer(connectionString, b => b.MigrationsAssembly("Cursive.Infra")));
+        return serviceCollection;
+    }
+
+    public static IServiceCollection AddUnitOfWork(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
         return serviceCollection;
     }
 }
