@@ -1,3 +1,4 @@
+using Cursive.API.Middlewares;
 using Cursive.Shared.IoC; 
 
 namespace Cursive.API;
@@ -24,7 +25,9 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        
+
+        app.UseMiddleware<GlobalExceptionMiddleware>();
+
         app.UseAuthorization();
 
         app.MapControllers();
