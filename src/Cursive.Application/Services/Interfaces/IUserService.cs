@@ -1,9 +1,10 @@
-﻿namespace Cursive.Application.Services.Interfaces;
+﻿using Cursive.API.Dtos;
+using Cursive.Application.Dtos.User.Requests;
+using Cursive.Application.Dtos.User.Responses;
+
+namespace Cursive.Application.Services.Interfaces;
 
 public interface IUserService
 {
-    public void RegisterUser()
-    {
-
-    }
+    Task<ResponseDto<UserResponse>> CreateAsync(UserRequest request);
 }

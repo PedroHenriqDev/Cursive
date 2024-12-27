@@ -1,34 +1,32 @@
 ﻿using Cursive.Domain.ValueObjects;
 
-namespace Cursive.API.Dtos.User;
+namespace Cursive.Application.Dtos.User.Requests;
 
-public class UserDto
+public class UserRequest
 {
-    public UserDto(Guid id, Name name, string email, DateTime createdAt)
+    public UserRequest(Name name, string email, DateTime createdAt)
     {
-        Id = id;
         FirstName = name.FirstName;
         LastName = name.LastName;
         Email = email;
-        CreatedAt = createdAt;
+        BirthDate = createdAt;
     }
 
-    public UserDto(Guid id, string firstName, string lastName, string email, DateTime createdAt)
+    public UserRequest(string firstName, string lastName, string email, DateTime birthDate)
     {
-        Id = id;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
-        CreatedAt = createdAt;
+        BirthDate = birthDate;
     }
 
-    public UserDto()
+    public UserRequest()
     {
     }
 
-    public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-    public DateTime CreatedAt { get; set; }
+    public DateTime BirthDate { get; set; }
 }
