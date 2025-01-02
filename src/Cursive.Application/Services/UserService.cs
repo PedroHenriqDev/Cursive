@@ -29,6 +29,7 @@ public class UserService : IUserService
             return ResponseFactory.BadRequest(validaton.Messages.Select(c => c.Message).ToList(), user.ToUserResponse());
 
         await _unitOfWork.UserRepository.CreateAsync(user);
+        await _unitOfWork.SaveAsync();
 
         return ResponseFactory.Created(new List<string>{ Messages.CREATED_SUCESSFULLY }, user.ToUserResponse());
     }

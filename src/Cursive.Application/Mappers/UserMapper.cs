@@ -22,6 +22,6 @@ public static class UserMapper
 
     public static User ToUser(this UserRequest request) 
     {
-        return new User(new Name(request.FirstName, request.LastName), request.Email, request.Password);
+        return new User(new Name(request.FirstName, request.LastName), request.Email, request.Password, request.BirthDate);
     }
 }

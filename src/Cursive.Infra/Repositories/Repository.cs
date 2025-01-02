@@ -43,7 +43,7 @@ namespace Cursive.Infra.Repositories
 
         public async Task CreateAsync(TEntity entity)
         {
-            await _dbContext.Set<TEntity>().AddAsync(entity);
+           await _dbContext.Set<TEntity>().AddAsync(entity);
         }
 
         public void Delete(TEntity entity)
@@ -54,11 +54,6 @@ namespace Cursive.Infra.Repositories
         public void Update(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;  
-        }
-
-        public async Task SaveAsync(TEntity entity)
-        {
-            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate)

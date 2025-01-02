@@ -6,7 +6,7 @@ namespace Cursive.API;
 public class Program
 {
     public static void Main(string[] args)
-    {
+  {
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
@@ -14,6 +14,8 @@ public class Program
         builder.Services.AddSwaggerGen();
         builder.Services.AddSqlServer(builder.Configuration);
         builder.Services.AddUnitOfWork();
+        builder.Services.AddServices();
+        builder.Services.AddSingleton<GlobalExceptionMiddleware>();
 
         var app = builder.Build();
 
@@ -26,11 +28,11 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseMiddleware<GlobalExceptionMiddleware>();
-
         app.UseAuthorization();
 
         app.MapControllers();
+
+        app.UseMiddleware<GlobalExceptionMiddleware>();
 
         app.Run();
     }

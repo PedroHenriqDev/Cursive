@@ -7,22 +7,22 @@ namespace Cursive.Domain.Entities;
 
 public class User : Entity
 {
-    private User()
+    public User()
     {
     }
 
-    public User(Name name, string email, string password) : base(GuidUtils.GenerateId(), DateTime.Now)
+    public User(Name name, string email, string password, DateTime birthDate) : base(GuidUtils.GenerateId(), DateTime.Now)
     {
         Name = name;
         Email = email;
         Password = password;
+        BirthDate = birthDate;
     }
 
     public Name Name { get; private set; } = new Name();
     public string Email { get; private set; } = string.Empty;
     public string Password { get; private set; } = string.Empty;
     public DateTime BirthDate { get; private set; }
-
 
     public override Validation Validate()
     {

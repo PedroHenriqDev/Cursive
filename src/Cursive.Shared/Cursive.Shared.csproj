@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cursive.Application\Cursive.Application.csproj" />
     <ProjectReference Include="..\Cursive.Infra\Cursive.Infra.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text.Json.Serialization;
 using Cursive.Application.Dtos.Interfaces;
 
 namespace Cursive.API.Dtos;
@@ -17,6 +18,7 @@ public class ResponseDto<T> : IResponseDto<T>
     {
     }
 
+    [JsonIgnore]
     public HttpStatusCode StatusCode { get; private set; }
     public IList<string> Messages { get; private set; } = [];
     public DateTime Date { get; private set; }
