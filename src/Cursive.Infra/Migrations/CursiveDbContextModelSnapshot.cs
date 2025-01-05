@@ -13,13 +13,12 @@ namespace Cursive.Infra.Migrations
     [DbContext(typeof(CursiveDbContext))]
     partial class CursiveDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder) 
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
@@ -59,12 +58,14 @@ namespace Cursive.Infra.Migrations
                             b1.Property<string>("FirstName")
                                 .IsRequired()
                                 .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)");
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("FirstName");
 
                             b1.Property<string>("LastName")
                                 .IsRequired()
                                 .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)");
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("LastName");
 
                             b1.HasKey("UserId");
 

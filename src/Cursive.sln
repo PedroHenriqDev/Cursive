@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Shared", "Cursive.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Application", "Cursive.Application\Cursive.Application.csproj", "{6921B061-0870-4916-B658-43C5BFF77F79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cursive.Logging", "Cursive.Logging\Cursive.Logging.csproj", "{7C1DD4B5-F11A-4003-97FD-1F3BD84225B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6921B061-0870-4916-B658-43C5BFF77F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6921B061-0870-4916-B658-43C5BFF77F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6921B061-0870-4916-B658-43C5BFF77F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1DD4B5-F11A-4003-97FD-1F3BD84225B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1DD4B5-F11A-4003-97FD-1F3BD84225B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1DD4B5-F11A-4003-97FD-1F3BD84225B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1DD4B5-F11A-4003-97FD-1F3BD84225B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,14 @@
-﻿using Cursive.Application.Services;
+﻿using System.Diagnostics;
+using System.Reflection;
+using Cursive.Application.Services;
 using Cursive.Application.Services.Interfaces;
 using Cursive.Infra.Data;
 using Cursive.Infra.UnitOfWork;
 using Cursive.Infra.UnitOfWork.Interfaces;
+using Cursive.Logging.Loggers;
+using Cursive.Logging.Loggers.Interfaces;
+using Cursive.Logging.Managers;
+using Cursive.Logging.Managers.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +33,15 @@ public static class DependencyResolver
     public static IServiceCollection AddServices(this IServiceCollection serviceCollection) 
     {
         serviceCollection.AddScoped<IUserService, UserService>();
+        return serviceCollection;
+    }
+
+    public static IServiceCollection AddFileLogger(this IServiceCollection serviceCollection, IConfiguration configuration)
+    {
+        serviceCollection.AddSingleton<IFileLogManager>(new FileLogManager(configuration));
+
+        serviceCollection.AddScoped(typeof(IFileLogger<>), typeof(FileLogger<>));
+     
         return serviceCollection;
     }
 }

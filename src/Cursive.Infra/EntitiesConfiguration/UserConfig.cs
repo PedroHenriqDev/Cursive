@@ -12,10 +12,8 @@ namespace Cursive.Infra.EntitiesConfiguration
 
             builder.OwnsOne(u => u.Name, name =>
             {
-                name.Property(n => n.FirstName)
-                .IsRequired()
-                .HasMaxLength(100);
-                name.Property(n => n.LastName).IsRequired().HasMaxLength(100);
+                name.Property(n => n.FirstName).HasColumnName("FirstName").HasMaxLength(100).IsRequired();
+                name.Property(n => n.LastName).HasColumnName("LastName").HasMaxLength(100).IsRequired();
             });
 
             builder.Property(u => u.Email).IsRequired().HasMaxLength(255);

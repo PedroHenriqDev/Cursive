@@ -5,6 +5,11 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public static implicit operator string(Name name)
+        {
+            return name.ToString();
+        }
+
         public Name(string firstName, string lastName)
         {
             FirstName = firstName;
@@ -15,6 +20,16 @@
         {
             FirstName = string.Empty;
             LastName = string.Empty;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Name nameToCompare)
+            {
+                return nameToCompare.ToString() == ToString();
+            }
+
+            return false;
         }
 
         public override string ToString()

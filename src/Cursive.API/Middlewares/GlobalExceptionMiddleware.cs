@@ -1,4 +1,5 @@
 ﻿using Cursive.API.Resources;
+using Cursive.Logging.Loggers.Interfaces;
 
 namespace Cursive.API.Middlewares;
 
@@ -10,8 +11,12 @@ public class GlobalExceptionMiddleware : IMiddleware
         {
             await next.Invoke(context);
         }
-        catch (Exception) 
+        catch (Exception ex) 
         {
+            IFileLogger<GlobalExceptionMiddleware> fileLogger = GetFileLogger(context);
+
+            await fileLogger.LogErrorAsync(ex.Message);
+
             context.Response.StatusCode = (int)StatusCodes.Status500InternalServerError;
 
             object response = new 
@@ -21,5 +26,12 @@ public class GlobalExceptionMiddleware : IMiddleware
 
             await context.Response.WriteAsJsonAsync(response);
         }
+    }
+
+    public IFileLogger<GlobalExceptionMiddleware> GetFileLogger(HttpContext context)
+    {
+        IFileLogger<GlobalExceptionMiddleware> fileLogger = context.RequestServices.GetRequiredService<IFileLogger<GlobalExceptionMiddleware>>();
+        fileLogger.LoggerContext.UseContext = false;
+        return fileLogger;
     }
 }
