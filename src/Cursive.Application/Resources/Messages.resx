@@ -120,4 +120,7 @@
   <data name="CREATED_SUCESSFULLY" xml:space="preserve">
     <value>User created sucessfully</value>
   </data>
+  <data name="EXISTS" xml:space="preserve">
+    <value>This {0} already exists</value>
+  </data>
 </root>

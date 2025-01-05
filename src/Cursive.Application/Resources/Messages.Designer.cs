@@ -68,5 +68,14 @@ namespace Cursive.Application.Resources {
                 return ResourceManager.GetString("CREATED_SUCESSFULLY", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This {0} already exists.
+        /// </summary>
+        internal static string EXISTS {
+            get {
+                return ResourceManager.GetString("EXISTS", resourceCulture);
+            }
+        }
     }
 }

@@ -28,6 +28,12 @@ public class UserService : IUserService
         if (!validaton.IsValid)
             return ResponseFactory.BadRequest(validaton.Messages.Select(c => c.Message).ToList(), user.ToUserResponse());
 
+        if (await _unitOfWork.UserRepository.ExistsAsync(u => u.Name.FirstName == user.Name.FirstName && u.Name.LastName == user.Name.LastName))
+            return ResponseFactory.BadRequest([string.Format(Messages.EXISTS, nameof(user.Name))], user.ToUserResponse());
+
+        if (await _unitOfWork.UserRepository.ExistsAsync(u => u.Email == user.Email))
+            return ResponseFactory.BadRequest([string.Format(Messages.EXISTS, nameof(user.Email))], user.ToUserResponse());
+
         await _unitOfWork.UserRepository.CreateAsync(user);
         await _unitOfWork.SaveAsync();
 
