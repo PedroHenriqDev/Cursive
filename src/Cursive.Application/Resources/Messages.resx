@@ -123,4 +123,10 @@
   <data name="EXISTS" xml:space="preserve">
     <value>This {0} already exists</value>
   </data>
+  <data name="NOT_FOUND_EXPIRE_TIME" xml:space="preserve">
+    <value>Not found expire time in configuration.</value>
+  </data>
+  <data name="NOT_FOUND_SECRET_KEY" xml:space="preserve">
+    <value>Not found secret key in configuration.</value>
+  </data>
 </root>

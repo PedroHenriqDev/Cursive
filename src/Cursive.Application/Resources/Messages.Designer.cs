@@ -77,5 +77,23 @@ namespace Cursive.Application.Resources {
                 return ResourceManager.GetString("EXISTS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found expire time in configuration..
+        /// </summary>
+        internal static string NOT_FOUND_EXPIRE_TIME {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_EXPIRE_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found secret key in configuration..
+        /// </summary>
+        internal static string NOT_FOUND_SECRET_KEY {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_SECRET_KEY", resourceCulture);
+            }
+        }
     }
 }
