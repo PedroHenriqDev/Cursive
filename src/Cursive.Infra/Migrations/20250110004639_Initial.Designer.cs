@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cursive.Infra.Migrations
 {
     [DbContext(typeof(CursiveDbContext))]
-    [Migration("20250105230938_Initial")]
+    [Migration("20250110004639_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -43,6 +43,10 @@ namespace Cursive.Infra.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salt")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

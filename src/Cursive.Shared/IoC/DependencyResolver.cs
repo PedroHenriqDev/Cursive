@@ -33,6 +33,7 @@ public static class DependencyResolver
     public static IServiceCollection AddServices(this IServiceCollection serviceCollection) 
     {
         serviceCollection.AddScoped<IUserService, UserService>();
+        serviceCollection.AddScoped<ICryptoService, CryptoService>();
         return serviceCollection;
     }
 

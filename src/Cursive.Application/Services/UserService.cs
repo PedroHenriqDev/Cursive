@@ -13,12 +13,14 @@ namespace Cursive.Application.Services;
 
 public class UserService : IUserService
 {
-    public UserService(IUnitOfWork unitOfWork)
+    public UserService(IUnitOfWork unitOfWork, ICryptoService cryptoService)
     {
         _unitOfWork = unitOfWork;
+        _cryptoService = cryptoService;
     }
 
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ICryptoService _cryptoService;
 
     public async Task<ResponseDto<UserResponse>> CreateAsync(UserRequest request)
     {
@@ -33,6 +35,8 @@ public class UserService : IUserService
 
         if (await _unitOfWork.UserRepository.ExistsAsync(u => u.Email == user.Email))
             return ResponseFactory.BadRequest([string.Format(Messages.EXISTS, nameof(user.Email))], user.ToUserResponse());
+
+        _cryptoService.EncryptPassword(user);
 
         await _unitOfWork.UserRepository.CreateAsync(user);
         await _unitOfWork.SaveAsync();

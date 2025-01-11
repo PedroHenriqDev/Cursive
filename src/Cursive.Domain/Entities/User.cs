@@ -17,12 +17,14 @@ public class User : Entity
         Email = email;
         Password = password;
         BirthDate = birthDate;
+        Salt = GuidUtils.GenerateId().ToString();
     }
 
-    public Name Name { get; private set; } = new Name();
-    public string Email { get; private set; } = string.Empty;
-    public string Password { get; private set; } = string.Empty;
-    public DateTime BirthDate { get; private set; }
+    public Name Name { get; set; } = new Name();
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+    public string Salt { get; set;} = string.Empty;
+    public DateTime BirthDate { get; set; }
 
     public override Validation Validate()
     {
