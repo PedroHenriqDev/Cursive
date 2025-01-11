@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Reflection;
-using Cursive.Application.Services;
+﻿using Cursive.Application.Services;
 using Cursive.Application.Services.Interfaces;
 using Cursive.Infra.Data;
 using Cursive.Infra.UnitOfWork;
@@ -12,6 +10,7 @@ using Cursive.Logging.Managers.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Cursive.Shared.IoC;
 
@@ -34,6 +33,8 @@ public static class DependencyResolver
     {
         serviceCollection.AddScoped<IUserService, UserService>();
         serviceCollection.AddScoped<ICryptoService, CryptoService>();
+        serviceCollection.AddScoped<ITokenService, TokenService>();
+        serviceCollection.AddScoped<IClaimService, ClaimService>();
         return serviceCollection;
     }
 

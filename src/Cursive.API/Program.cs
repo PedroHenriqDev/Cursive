@@ -1,3 +1,4 @@
+using Cursive.API.Extensions;
 using Cursive.API.Middlewares;
 using Cursive.Shared.IoC; 
 
@@ -10,6 +11,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
+        builder.Services.AddJwtAuthentication(builder.Configuration);
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddSqlServer(builder.Configuration);
@@ -18,7 +20,7 @@ public class Program
         builder.Services.AddFileLogger(builder.Configuration);
         builder.Services.AddSingleton<GlobalExceptionMiddleware>();
 
-        var app = builder.Build();
+        WebApplication app = builder.Build();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -28,12 +30,10 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
+        app.UseAuthentication();
         app.UseAuthorization();
-
+        app.UseGlobalExceptionMiddleware();
         app.MapControllers();
-
-        app.UseMiddleware<GlobalExceptionMiddleware>();
 
         app.Run();
     }

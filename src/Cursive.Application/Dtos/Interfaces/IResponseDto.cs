@@ -7,5 +7,4 @@ public interface IResponseDto<T>
     HttpStatusCode StatusCode { get; }
     IList<string> Messages { get; }
     T? Data { get; }
-    DateTime Date { get; }
 }

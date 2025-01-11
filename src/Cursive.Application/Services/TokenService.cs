@@ -1,9 +1,11 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Cursive.Application.Dtos.User.Responses;
 using Cursive.Application.Exceptions;
 using Cursive.Application.Resources;
 using Cursive.Application.Services.Interfaces;
+using Cursive.Application.Utils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -18,9 +20,9 @@ public class TokenService : ITokenService
         _configuration = configuration;
     }
 
-    public string GenerateToken(IList<Claim> authClaims)
+    public TokenResponse GenerateToken(IList<Claim> authClaims)
     {
-        (string secretKey, DateTime expireTime) = GetConfigurations();
+        (string secretKey, DateTime expireTime) = _configuration.GetJwtConfig();
 
         SigningCredentials signingCredentials = GenerateSigningCredentials(secretKey);
 
@@ -34,7 +36,7 @@ public class TokenService : ITokenService
         var tokenHandler = new JwtSecurityTokenHandler();
         SecurityToken? token = tokenHandler.CreateToken(tokenDescriptor);
         
-        return tokenHandler.WriteToken(token);
+        return new TokenResponse(tokenHandler.WriteToken(token), expireTime);
     }
 
     public SigningCredentials GenerateSigningCredentials(string secretKey)
@@ -42,12 +44,5 @@ public class TokenService : ITokenService
         byte[] secretKeyAsBase64 = Encoding.ASCII.GetBytes(secretKey);
         var symetricKey = new SigningCredentials(new SymmetricSecurityKey(secretKeyAsBase64), SecurityAlgorithms.HmacSha256Signature);
         return symetricKey;
-    }
-
-    public (string secretKey, DateTime expireTime) GetConfigurations()
-    {
-        string secretKey = _configuration["tokenJwt:secretKey"] ?? throw new TokenException(Messages.NOT_FOUND_SECRET_KEY);
-        int expireTimeInMinutes = Convert.ToInt32(_configuration["tokenJwt:secretKey"] ?? throw new TokenException(Messages.NOT_FOUND_EXPIRE_TIME));
-        return (secretKey, DateTime.Now.AddMinutes(expireTimeInMinutes));
     }
 }

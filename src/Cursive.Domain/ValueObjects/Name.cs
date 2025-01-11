@@ -5,11 +5,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public static implicit operator string(Name name)
-        {
-            return name.ToString();
-        }
-
         public Name(string firstName, string lastName)
         {
             FirstName = firstName;

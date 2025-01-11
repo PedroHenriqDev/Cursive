@@ -79,6 +79,24 @@ namespace Cursive.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email or password is invalid..
+        /// </summary>
+        internal static string INVALID_LOGIN {
+            get {
+                return ResourceManager.GetString("INVALID_LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login sucessfully.
+        /// </summary>
+        internal static string LOGIN_SUCESSFULLY {
+            get {
+                return ResourceManager.GetString("LOGIN_SUCESSFULLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not found expire time in configuration..
         /// </summary>
         internal static string NOT_FOUND_EXPIRE_TIME {

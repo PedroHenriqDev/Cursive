@@ -10,7 +10,6 @@ public class ResponseDto<T> : IResponseDto<T>
     {
         StatusCode = statusCode;
         Messages = messages;
-        Date = DateTime.Now;
         Data = data;
     }
 
@@ -21,6 +20,5 @@ public class ResponseDto<T> : IResponseDto<T>
     [JsonIgnore]
     public HttpStatusCode StatusCode { get; private set; }
     public IList<string> Messages { get; private set; } = [];
-    public DateTime Date { get; private set; }
     public T? Data { get; private set; }
 }

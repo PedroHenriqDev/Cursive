@@ -1,8 +1,9 @@
 ﻿using System.Security.Claims;
+using Cursive.Application.Dtos.User.Responses;
 
 namespace Cursive.Application.Services.Interfaces;
 
 public interface ITokenService
 {
-    string GenerateToken(IList<Claim> authClaims);
+    TokenResponse GenerateToken(IList<Claim> authClaims);
 }
