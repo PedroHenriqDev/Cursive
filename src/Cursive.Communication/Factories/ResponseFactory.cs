@@ -1,7 +1,6 @@
-﻿using Cursive.API.Dtos;
-using Cursive.Application.Resources;
+﻿using Cursive.Communication.Dtos;
 
-namespace Cursive.Application.Factories;
+namespace Cursive.Communication.Factories;
 
 public static class ResponseFactory
 {
@@ -25,7 +24,6 @@ public static class ResponseFactory
     {
         return new ResponseDto<T>(System.Net.HttpStatusCode.Created, messages, value);
     }
-
 
     public static ResponseDto<T> Ok<T>(string message, T value)
     {

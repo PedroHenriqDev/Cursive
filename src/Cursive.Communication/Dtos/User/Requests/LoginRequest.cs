@@ -1,4 +1,4 @@
-﻿namespace Cursive.Application.Dtos.User.Requests;
+﻿namespace Cursive.Communication.Dtos.User.Requests;
 
 public class LoginRequest
 {

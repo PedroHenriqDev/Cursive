@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Text.Json.Serialization;
-using Cursive.Application.Dtos.Interfaces;
+using Cursive.Communication.Dtos.Interfaces;
 
-namespace Cursive.API.Dtos;
+namespace Cursive.Communication.Dtos;
 
 public class ResponseDto<T> : IResponseDto<T> 
 {

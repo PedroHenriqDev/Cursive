@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using Cursive.Application.Exceptions;
+﻿using Cursive.Application.Exceptions;
 using Cursive.Application.Resources;
 using Microsoft.Extensions.Configuration;
 

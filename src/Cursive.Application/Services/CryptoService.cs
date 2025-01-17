@@ -1,4 +1,4 @@
-﻿using Cursive.Application.Dtos.User.Responses;
+﻿using Cursive.Communication.Dtos.User.Responses;
 using Cursive.Application.Services.Interfaces;
 using Cursive.Domain.Entities;
 

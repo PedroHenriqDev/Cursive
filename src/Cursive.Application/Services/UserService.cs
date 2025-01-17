@@ -1,9 +1,8 @@
 ﻿using System.Security.Claims;
-using Cursive.API.Dtos;
-using Cursive.Application.Dtos.Interfaces;
-using Cursive.Application.Dtos.User.Requests;
-using Cursive.Application.Dtos.User.Responses;
-using Cursive.Application.Factories;
+using Cursive.Communication.Dtos.Interfaces;
+using Cursive.Communication.Dtos.User.Requests;
+using Cursive.Communication.Dtos.User.Responses;
+using Cursive.Communication.Factories;
 using Cursive.Application.Mappers;
 using Cursive.Application.Resources;
 using Cursive.Application.Services.Interfaces;

@@ -1,17 +1,7 @@
-﻿using Cursive.Domain.ValueObjects;
-
-namespace Cursive.Application.Dtos.User.Requests;
+﻿namespace Cursive.Communication.Dtos.User.Requests;
 
 public class UserRequest
 {
-    public UserRequest(Name name, string email, DateTime createdAt)
-    {
-        FirstName = name.FirstName;
-        LastName = name.LastName;
-        Email = email;
-        BirthDate = createdAt;
-    }
-
     public UserRequest(string firstName, string lastName, string email, DateTime birthDate)
     {
         FirstName = firstName;

@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cursive.Communication\Cursive.Communication.csproj" />
     <ProjectReference Include="..\Cursive.Infra\Cursive.Infra.csproj" />
   </ItemGroup>
 

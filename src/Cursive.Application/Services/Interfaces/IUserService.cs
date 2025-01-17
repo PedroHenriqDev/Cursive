@@ -1,7 +1,6 @@
-﻿using Cursive.API.Dtos;
-using Cursive.Application.Dtos.Interfaces;
-using Cursive.Application.Dtos.User.Requests;
-using Cursive.Application.Dtos.User.Responses;
+﻿using Cursive.Communication.Dtos.Interfaces;
+using Cursive.Communication.Dtos.User.Requests;
+using Cursive.Communication.Dtos.User.Responses;
 
 namespace Cursive.Application.Services.Interfaces;
 

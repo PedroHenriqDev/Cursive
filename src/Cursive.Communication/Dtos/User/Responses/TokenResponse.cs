@@ -1,6 +1,4 @@
-﻿using Microsoft.Identity.Client.Extensibility;
-
-namespace Cursive.Application.Dtos.User.Responses;
+﻿namespace Cursive.Communication.Dtos.User.Responses;
 
 public class TokenResponse
 {

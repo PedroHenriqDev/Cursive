@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Cursive.Application.Dtos.Interfaces;
+namespace Cursive.Communication.Dtos.Interfaces;
 
 public interface IResponseDto<T> 
 {

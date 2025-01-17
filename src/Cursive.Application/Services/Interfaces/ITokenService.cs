@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using Cursive.Application.Dtos.User.Responses;
+using Cursive.Communication.Dtos.User.Responses;
 
 namespace Cursive.Application.Services.Interfaces;
 
