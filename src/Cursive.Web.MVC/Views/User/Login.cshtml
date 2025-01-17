@@ -1,0 +1,79 @@
+﻿<div id="app" class="d-flex justify-content-center align-items-center	">
+	<div class="card p-4 border-0 shadow">
+		<div class="card-body text-center">
+			<h1 class="text-primary mb-xxl-5 mt-xxl-4">Login</h1>
+			<form class="form-login">
+				<div class="mb-3 text-center">
+					<label for="email">Email: </label>
+					<input type="email" 
+						   id="email" 
+						   name="email" 
+						   v-model="formLogin.email"
+						   class="form-control rounded-pill"
+						   placeholder="Enter your email" 
+						   required
+						   maxlength="256"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="password">Password: </label>
+					<input type="password"
+						   id="password" 
+						   name="password" 
+						   v-model="formLogin.password"
+						   class="form-control rounded-pill"
+						   placeholder="Enter your password"
+						   required/>
+				</div>
+				<div>
+					<button class="rounded-pill btn btn-primary">Sign up</button>
+					<button class="rounded-pill btn btn-success">Sign in</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<style>
+	.form-login {
+		max-width: 500px;
+		width: 100%
+	}
+</style>
+
+@section Scripts {
+	<script>
+		var vue = new Vue({
+			el: '#app',
+			data: {
+				formLogin: {
+					email: '',
+					password: ''
+				},
+				validationErrors: []
+			},
+			methods: {
+				Login: function(){
+					let baseUrl = `${window.location.protocol}//${window.location.host}`;
+					let controller = 'User';
+					let endpoint = 'login';
+
+					$.ajax({
+						url: baseUrl + controller + endpoint,
+						type: 'POST',
+						content: 'application/json; charset=utf-8',
+						data: this.formLogin,
+						error: function(response){
+							console.log(response);
+
+							if(response.status == 400 || response.status == 500)
+								this.validationErrors = response.data;
+						},
+						success: function(response){
+
+						}
+					});
+				}
+			}
+		})
+	</script>
+}
