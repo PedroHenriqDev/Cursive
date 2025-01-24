@@ -1,4 +1,5 @@
-﻿using Cursive.Communication.Dtos;
+﻿using System.Net.Http.Headers;
+using Cursive.Communication.Dtos;
 using Cursive.Communication.Dtos.Interfaces;
 using Newtonsoft.Json;
 
@@ -13,7 +14,7 @@ public static class ConvertHelper
 
     public static async Task<IResponseDto<T>?> ConvertToResponseDtoAsync<T>(HttpResponseMessage httpResponse) where T : class
     {
-        return JsonConvert.DeserializeObject<IResponseDto<T>>(await httpResponse.Content.ReadAsStringAsync());
-       
+        string contentAsJson = await httpResponse.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<ResponseDto<T>>(contentAsJson);
     }
 }

@@ -11,13 +11,13 @@ public class UserClient : IUserClient
 {
     private readonly IConfiguration _configuration;
     private readonly Uri _baseUrl;
-    private readonly Uri _baseApiController;
+    private readonly string _baseApiController;
 
     public UserClient(IConfiguration configuration)
     {
         _configuration = configuration;
         _baseUrl = new Uri(configuration["httpClient:baseUrl"] ?? throw new ArgumentNullException("The url base cannot be null."));
-        _baseApiController = new Uri(configuration["httpClient:baseApiController"] ?? throw new ArgumentNullException("The url of api cannot be null."));
+        _baseApiController = configuration["httpClient:baseApiUserController"] ?? throw new ArgumentNullException("The url of api cannot be null.");
     }
 
     public async Task<IResponseDto<UserResponse>?> CreateAsync(UserRequest userRequest)
@@ -38,7 +38,7 @@ public class UserClient : IUserClient
         {
             httpClient.BaseAddress = _baseUrl;
 
-            HttpResponseMessage httpResponse = await httpClient.PostAsync($"{_baseApiController}/login", ConvertHelper.ConvertToStringContent(loginRequest));
+            HttpResponseMessage httpResponse = await httpClient.PostAsync(_baseApiController + "login", ConvertHelper.ConvertToStringContent(loginRequest));
 
             return await ConvertHelper.ConvertToResponseDtoAsync<TokenResponse>(httpResponse);
         }
