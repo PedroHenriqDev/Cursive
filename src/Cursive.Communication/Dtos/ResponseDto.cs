@@ -18,7 +18,7 @@ public class ResponseDto<T> : IResponseDto<T>
     }
 
     [JsonIgnore]
-    public HttpStatusCode StatusCode { get; private set; }
+    public HttpStatusCode StatusCode { get; set; }
     public IList<string> Messages { get; private set; } = [];
-    public T? Data { get; private set; }
+    public T? Data { get; set; }
 }

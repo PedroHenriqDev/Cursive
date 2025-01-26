@@ -1,3 +1,7 @@
+using Cursive.Shared.Cors;
+using Cursive.Shared.IoC;
+using Cursive.Web.MVC.Extensions;
+
 namespace Cursive.Web.MVC;
 
 public class Program
@@ -8,6 +12,9 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddWebClients(builder.Configuration);
+        builder.Services.AddWebServices();
+        builder.Services.AddDefaultCorsAllowAll();
 
         WebApplication app = builder.Build();
 
@@ -15,10 +22,10 @@ public class Program
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            // The default dHSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-
+     
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 

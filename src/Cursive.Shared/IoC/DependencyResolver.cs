@@ -7,10 +7,11 @@ using Cursive.Logging.Loggers;
 using Cursive.Logging.Loggers.Interfaces;
 using Cursive.Logging.Managers;
 using Cursive.Logging.Managers.Interfaces;
+using Cursive.Web.HttpCore.Interfaces;
+using Cursive.Web.HttpCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Cursive.Shared.IoC;
 
@@ -35,6 +36,13 @@ public static class DependencyResolver
         serviceCollection.AddScoped<ICryptoService, CryptoService>();
         serviceCollection.AddScoped<ITokenService, TokenService>();
         serviceCollection.AddScoped<IClaimService, ClaimService>();
+
+        return serviceCollection;
+    }
+
+    public static IServiceCollection AddWebClients(this IServiceCollection serviceCollection, IConfiguration configuration)
+    {
+        serviceCollection.AddScoped<IUserClient>(opt => new UserClient(configuration));
         return serviceCollection;
     }
 

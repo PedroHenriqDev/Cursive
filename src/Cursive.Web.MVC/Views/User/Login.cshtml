@@ -1,4 +1,4 @@
-﻿<div id="app" class="d-flex justify-content-center align-items-center	">
+﻿<div id="app" class="d-flex justify-content-center align-items-center">
 	<div class="card p-4 border-0 shadow">
 		<div class="card-body text-center">
 			<h1 class="text-primary mb-xxl-5 mt-xxl-4">Login</h1>
@@ -25,12 +25,13 @@
 						   required/>
 				</div>
 				<div>
-					<button class="rounded-pill btn btn-primary">Sign up</button>
-					<button class="rounded-pill btn btn-success">Sign in</button>
+					<button type="button" class="rounded-pill btn btn-primary">Sign up</button>
+					<button type="button" class="rounded-pill btn btn-success" v-on:click="Login">Sign in</button>
 				</div>
 			</form>
 		</div>
 	</div>
+    <loader ref="loader"></loader>
 </div>
 
 <style>
@@ -41,36 +42,46 @@
 </style>
 
 @section Scripts {
+	<script src="~/js/components/loader.js"></script>
 	<script>
+		Vue.use(Toasted, {
+			position: 'bottom-center',
+			duration: 3000
+		});
+
+
 		var vue = new Vue({
 			el: '#app',
 			data: {
 				formLogin: {
 					email: '',
 					password: ''
-				},
-				validationErrors: []
+				}
 			},
 			methods: {
-				Login: function(){
-					let baseUrl = `${window.location.protocol}//${window.location.host}`;
-					let controller = 'User';
-					let endpoint = 'login';
+				 Login: function () {
+					 const self = this;
+
+					 const l_Data = {
+						 Email: this.formLogin.email,
+						 Password: this.formLogin.password,
+					 };
 
 					$.ajax({
-						url: baseUrl + controller + endpoint,
 						type: 'POST',
-						content: 'application/json; charset=utf-8',
-						data: this.formLogin,
-						error: function(response){
-							console.log(response);
-
-							if(response.status == 400 || response.status == 500)
-								this.validationErrors = response.data;
+						url: "@Url.Action("Login", "User")",
+						dataType: 'json',
+						contentType: 'application/json; charset=utf-8',
+						data: JSON.stringify(l_Data),
+						beforeSend: () => this.$refs.loader.showLoader(),
+						error: function()  {
+							self.$toasted.error("Invalid Login");
 						},
-						success: function(response){
-
-						}
+						success: function (response){
+							console.log("Login bem-sucedido!", response);
+							window.location.href = "@Url.Action("Index", "Test")";
+						},
+						complete: () => this.$refs.loader.hideLoader()
 					});
 				}
 			}

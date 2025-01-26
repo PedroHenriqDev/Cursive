@@ -1,6 +1,7 @@
 using Cursive.API.Extensions;
 using Cursive.API.Middlewares;
-using Cursive.Shared.IoC; 
+using Cursive.Shared.IoC;
+using Cursive.Shared.Cors;
 
 namespace Cursive.API;
 
@@ -19,6 +20,7 @@ public class Program
         builder.Services.AddServices();
         builder.Services.AddFileLogger(builder.Configuration);
         builder.Services.AddSingleton<GlobalExceptionMiddleware>();
+        builder.Services.AddDefaultCorsAllowAll();
 
         WebApplication app = builder.Build();
 

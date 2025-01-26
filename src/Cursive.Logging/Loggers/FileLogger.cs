@@ -46,12 +46,12 @@ public class FileLogger<T> : IFileLogger<T> where T : class
     public async Task LogErrorsAsync(IEnumerable<string> messages, [CallerMemberName] string method = "", string @class = "")
     {
         foreach(string message in messages)
-         await _fileLogManager.WriteInLogFileAsync(MountMessage("Error", method, @class, message));
+            await _fileLogManager.WriteInLogFileAsync(MountMessage("Error", method, @class, message));
     }
 
     private string MountMessage(string type,string method, string @class, string message)
     {
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
         sb.Append($"{type} - {DateTime.Now} -> ");
 
