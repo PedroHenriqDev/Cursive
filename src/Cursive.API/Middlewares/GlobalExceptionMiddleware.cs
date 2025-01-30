@@ -19,7 +19,7 @@ public class GlobalExceptionMiddleware : IMiddleware
 
             context.Response.StatusCode = (int)StatusCodes.Status500InternalServerError;
 
-            object response = new 
+            var response = new 
             {
                 Message = ApiMessages.INTERNAL_SERVER_ERROR,
             };

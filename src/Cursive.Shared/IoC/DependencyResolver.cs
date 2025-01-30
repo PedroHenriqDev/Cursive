@@ -43,6 +43,8 @@ public static class DependencyResolver
     public static IServiceCollection AddWebClients(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
         serviceCollection.AddScoped<IUserClient>(opt => new UserClient(configuration));
+        serviceCollection.AddScoped<IReCaptchaClient, ReCaptchaClient>();
+
         return serviceCollection;
     }
 

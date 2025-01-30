@@ -15,7 +15,7 @@ public class AuthenticationService : IAuthenticationService
 
     public void SetAuthSession(HttpContext httpContext, TokenResponse tokenResponse)
     {
-        CookieOptions cookiesOptions = new CookieOptions()
+        var cookiesOptions = new CookieOptions()
         {
             Expires = tokenResponse?.ExpireTime,
             HttpOnly = true,

@@ -1,0 +1,158 @@
+﻿<style>
+	.form-register {
+		max-width: 600px;
+		width: 100%
+	}	
+</style>
+
+<div id="app" class="justify-content-center text-center align-items-center">
+	<div class="card p-4 border-0 shadow">
+		<div class="card-body text-center">
+			<h1 class="text-primary mb-xxl-5 mt-xxl-4">Sign Up</h1>
+			<Form class="form-group form-register">
+				<div class="mb-3 text-center">
+					<label for="email">Email: </label>
+					<Field class="form-control rounded-pill"
+						   id="email"
+						   name="email"
+						   placeholder="Enter your email"
+						   v-model="formRegister.email"
+						   rules="required|email"/>
+				    <ErrorMessage name="email" class="text-danger"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="firstName">First Name: </label>
+					<Field class="form-control rounded-pill"
+						   id="firstName"
+						   name="firstName"
+						   placeholder="Enter your first name"
+						   v-model="formRegister.firstName"
+						   rules="required|min:2|:max:100"/>
+				     <ErrorMessage name="firstName" class="text-danger"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="lastName">Last Name: </label>
+					<Field class="form-control rounded-pill"
+						   id="lastName"
+						   name="lastName"
+						   type="text"
+						   placeholder="Enter your last name"
+						   v-model="formRegister.lastName"
+						   rules="required|min:2|max:100"/>
+				     <ErrorMessage name="lastName" class="text-danger"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="birthDate">Birth date: </label>
+					<Field class="form-control rounded-pill" 
+						   id="birthDate"
+						   v-model="formRegister.birthDate"
+						   type="date"
+						   rules="required"/>
+					<ErrorMessage name="birthDate" class="text-danger"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="password">Password: </label>
+					<Field class="form-control rounded-pill"
+						   id="password"
+						   name="password"
+						   placeholder="Enter your password"
+						   v-model="formRegister.password"
+						   type="password"
+						   rules="required|min:6|max:256"/>
+				    <ErrorMessage name="password" class="text-danger"/>
+				</div>
+				<div class="mb-3 text-center">
+					<label for="confirmPassword">Confirm password: </label>
+					<Field class="form-control rounded-pill" 
+						   id="confirmPassword"
+						   name="confirmPassword"
+						   v-model="formRegister.confirmPassword"
+						   type="password"
+						   rules="required|confirmed:password" />
+			        <ErrorMessage name="confirmPassword" class="text-danger"/>
+				</div>
+				<div class="text-center">
+					<a href="@Url.Action("Login", "User")">Sign in</a>
+					<button type="submit" class="btn btn-success" v-on:click="register()">Sign Up</button>
+				</div>
+			</Form>
+		</div>
+	</div>
+	<loader refs="loader"></loader>
+</div>	
+
+@section Scripts{
+
+	<script>
+		Vue.use(Toasted, {
+			position: 'bottom-center',
+			duration: 3000
+		});
+
+		const {defineRule, configure, Field, Form, ErrorMessage } = VeeValidate;
+		const { required, email, min, max, confirmed} = VeeValidateRules;
+
+		Vue.component('Field', Field);
+		Vue.component('Form', Form);
+		Vue.component('ErrorMessage', ErrorMessage);
+
+		defineRule('required', required);
+		defineRule('email', email);
+		defineRule('min', min);
+		defineRule('max', max);
+		defineRule('confirmed', confirmed);
+
+		configure({
+			generateMessage: localize('en', {
+				messages: {
+					required: '{field} is required.',
+					email: '{field} must be valid email.',
+					min: '{field} must have at least {min} characters.',
+					max: '{field} must have no more than {max} characters.',
+					confirmed: 'Passwords do not match.'
+				},
+				names: {
+					email: 'Email',
+					firstName: 'FirstName',
+					lastName: 'LastName',
+					birthDate: 'BirthDate',
+					password: 'Password',
+					confirmPassword: 'Confirm Passoword'
+				}
+			})
+		})
+
+		var vue = new Vue({
+			el: '#app',
+			data: {
+				formRegister: {
+					email: '',
+					firstName: '',
+					lastName: '',
+					birthData: '',
+					password: '',
+					confirmPassword: ''
+				},
+				validationErrors: []
+			},
+			methods: {
+				register: function(){
+					const self = this;
+
+					if(confirmPassword())
+					  
+
+					const data = {
+						Email: formRegister.email,
+						FirstName: formRegister.firstName,
+						LastName
+					}
+				},
+				confirmPassword: function(){
+					return formRegister.password == formRegister.confirmPassword;
+						
+				}
+			},
+		});
+	</script>
+}
