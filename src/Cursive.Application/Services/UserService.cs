@@ -31,15 +31,19 @@ public class UserService : IUserService
     {
         User user = request.ToUser();
         Validation validaton = user.Validate();
+        var errorMessages = new List<string>();
 
         if (!validaton.IsValid)
-            return ResponseFactory.BadRequest(validaton.Messages.Select(c => c.Message).ToList(), user.ToUserResponse());
+            errorMessages.AddRange(validaton.Messages.Select(c => c.Message).ToList());
 
         if (await _unitOfWork.UserRepository.ExistsAsync(u => u.Name.FirstName == user.Name.FirstName && u.Name.LastName == user.Name.LastName))
-            return ResponseFactory.BadRequest(string.Format(Messages.EXISTS, nameof(user.Name)), user.ToUserResponse());
+            errorMessages.Add(string.Format(Messages.EXISTS, nameof(user.Name)));
 
         if (await _unitOfWork.UserRepository.ExistsAsync(u => u.Email == user.Email))
-            return ResponseFactory.BadRequest(string.Format(Messages.EXISTS, nameof(user.Email)), user.ToUserResponse());
+            errorMessages.Add(string.Format(Messages.EXISTS, nameof(user.Email)));
+
+        if (errorMessages.Any())
+            return ResponseFactory.BadRequest(errorMessages, user.ToUserResponse());
 
         _cryptoService.EncryptPassword(user);
 

@@ -3,6 +3,7 @@ using Cursive.Communication.Dtos.Interfaces;
 using Cursive.Communication.Dtos.User.Requests;
 using Cursive.Communication.Dtos.User.Responses;
 using Cursive.Web.HttpCore.Interfaces;
+using Cursive.Web.MVC.Extensions;
 using Cursive.Web.MVC.Models;
 using Cursive.Web.MVC.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,17 @@ public class UserController : Controller
     public IActionResult Register() => View();
 
     [HttpPost]
+    public async Task<IActionResult> Register([FromBody] UserRequest userRequest)
+    {
+        IResponseDto<UserResponse>? userResponse = await _userClient.RequestToCreateAsync(userRequest);
+
+        if(userResponse == null)
+            return StatusCode(StatusCodes.Status500InternalServerError);
+
+        return StatusCode((int)userResponse.StatusCode, ((int)userResponse.StatusCode).IsSuccessStatusCode() ? userResponse.Data : userResponse.Messages);
+    }
+
+    [HttpPost]
     public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
     {
         IResponseDto<ReCaptchaResponse?>? reCaptchaResponse = await _reCaptchaClient.ValidateReCaptchaAsync(loginRequest.ReCaptchaToken);
@@ -39,7 +51,7 @@ public class UserController : Controller
         if (!reCaptchaResponse!.Data!.Success)
             return StatusCode(StatusCodes.Status400BadRequest, new LoginViewModel { IsReCaptchaError = true });
 
-        IResponseDto<TokenResponse>? response = await _userClient.LoginAsync(loginRequest);
+        IResponseDto<TokenResponse>? response = await _userClient.RequestToLoginAsync(loginRequest);
 
         if (response == null)
             return BadRequest();

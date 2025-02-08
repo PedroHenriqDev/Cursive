@@ -24,7 +24,7 @@ public class GlobalExceptionMiddleware : IMiddleware
                 Message = ApiMessages.INTERNAL_SERVER_ERROR,
             };
 
-            await context.Response.WriteAsJsonAsync(response);
+            await context.Response.WriteAsJsonAsync( response);
         }
     }
 

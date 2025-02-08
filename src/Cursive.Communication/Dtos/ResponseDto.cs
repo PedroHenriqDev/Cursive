@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json.Serialization;
 using Cursive.Communication.Dtos.Interfaces;
+using Cursive.Communication.Dtos.User.Responses;
 
 namespace Cursive.Communication.Dtos;
 

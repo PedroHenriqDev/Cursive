@@ -2,86 +2,101 @@
 	.form-register {
 		max-width: 600px;
 		width: 100%
-	}	
+	}
 </style>
 
-<div id="app" class="justify-content-center text-center align-items-center">
-	<div class="card p-4 border-0 shadow">
+<div id="app" class="d-flex justify-content-center align-items-center min-vh-100">
+	<loader ref="loader"></loader>
+	<div class="card p-5 border-0 shadow-lg rounded-4" style="max-width: 450px;">
 		<div class="card-body text-center">
-			<h1 class="text-primary mb-xxl-5 mt-xxl-4">Sign Up</h1>
-			<Form class="form-group form-register">
-				<div class="mb-3 text-center">
-					<label for="email">Email: </label>
-					<Field class="form-control rounded-pill"
-						   id="email"
-						   name="email"
-						   placeholder="Enter your email"
-						   v-model="formRegister.email"
-						   rules="required|email"/>
-				    <ErrorMessage name="email" class="text-danger"/>
+			<h1 class="text-primary fw-bold mb-4">Sign Up</h1>
+			<form class="form-group form-register">
+				<div class="mb-4 text-start">
+					<label for="email" class="form-label fw-semibold">Email</label>
+					<input type="email" class="form-control rounded-3 px-4 py-2 shadow-sm" id="email"
+						   name="email" placeholder="Enter your email" v-model="formRegister.email" />
+					<div class="text-danger small mt-2" v-if="v$.formRegister.$error">
+						<ul class="list-unstyled">
+							<li v-for="error in getValidationErrors('email')" class="d-flex align-items-center">
+								<i class="bi bi-exclamation-circle me-2"></i> {{ error }}
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="mb-3 text-center">
-					<label for="firstName">First Name: </label>
-					<Field class="form-control rounded-pill"
-						   id="firstName"
-						   name="firstName"
-						   placeholder="Enter your first name"
-						   v-model="formRegister.firstName"
-						   rules="required|min:2|:max:100"/>
-				     <ErrorMessage name="firstName" class="text-danger"/>
+
+				<div class="mb-4 text-start">
+					<label for="firstName" class="form-label fw-semibold">First Name</label>
+					<input type="text" class="form-control rounded-3 px-4 py-2 shadow-sm" id="firstName"
+						   name="firstName" placeholder="Enter your first name" v-model="formRegister.firstName" />
+					<div class="text-danger small mt-2" v-if="v$.formRegister.$error">
+						<ul class="list-unstyled">
+							<li v-for="error in getValidationErrors('firstName')" class="d-flex align-items-center">
+								<i class="bi bi-exclamation-circle me-2"></i> {{ error }}
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="mb-3 text-center">
-					<label for="lastName">Last Name: </label>
-					<Field class="form-control rounded-pill"
-						   id="lastName"
-						   name="lastName"
-						   type="text"
-						   placeholder="Enter your last name"
-						   v-model="formRegister.lastName"
-						   rules="required|min:2|max:100"/>
-				     <ErrorMessage name="lastName" class="text-danger"/>
+
+				<div class="mb-4 text-start">
+					<label for="lastName" class="form-label fw-semibold">Last Name</label>
+					<input type="text" class="form-control rounded-3 px-4 py-2 shadow-sm" id="lastName"
+						   name="lastName" placeholder="Enter your last name" v-model="formRegister.lastName" />
+					<div class="text-danger small mt-2" v-if="v$.formRegister.$error">
+						<ul class="list-unstyled">
+							<li v-for="error in getValidationErrors('lastName')" class="d-flex align-items-center">
+								<i class="bi bi-exclamation-circle me-2"></i> {{ error }}
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="mb-3 text-center">
-					<label for="birthDate">Birth date: </label>
-					<Field class="form-control rounded-pill" 
-						   id="birthDate"
-						   v-model="formRegister.birthDate"
-						   type="date"
-						   rules="required"/>
-					<ErrorMessage name="birthDate" class="text-danger"/>
+
+				<div class="mb-4 text-start">
+					<label for="birthDate" class="form-label fw-semibold">Birth Date</label>
+					<input type="date" class="form-control rounded-3 px-4 py-2 shadow-sm" id="birthDate"
+						   v-model="formRegister.birthDate" />
 				</div>
-				<div class="mb-3 text-center">
-					<label for="password">Password: </label>
-					<Field class="form-control rounded-pill"
-						   id="password"
-						   name="password"
-						   placeholder="Enter your password"
-						   v-model="formRegister.password"
-						   type="password"
-						   rules="required|min:6|max:256"/>
-				    <ErrorMessage name="password" class="text-danger"/>
+
+				<div class="mb-4 text-start">
+					<label for="password" class="form-label fw-semibold">Password</label>
+					<input type="password" class="form-control rounded-3 px-4 py-2 shadow-sm" id="password"
+						   name="password" placeholder="Enter your password" v-model="formRegister.password" />
+					<div class="text-danger small mt-2" v-if="v$.formRegister.$error">
+						<ul class="list-unstyled">
+							<li v-for="error in getValidationErrors('password')" class="d-flex align-items-center">
+								<i class="bi bi-exclamation-circle me-2"></i> {{ error }}
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="mb-3 text-center">
-					<label for="confirmPassword">Confirm password: </label>
-					<Field class="form-control rounded-pill" 
-						   id="confirmPassword"
-						   name="confirmPassword"
-						   v-model="formRegister.confirmPassword"
-						   type="password"
-						   rules="required|confirmed:password" />
-			        <ErrorMessage name="confirmPassword" class="text-danger"/>
+
+				<div class="mb-4 text-start">
+					<label for="confirmPassword" class="form-label fw-semibold">Confirm Password</label>
+					<input type="password" class="form-control rounded-3 px-4 py-2 shadow-sm" id="confirmPassword"
+						   name="confirmPassword" placeholder="Re-enter your password" v-model="formRegister.confirmPassword" />
+					<div class="text-danger small mt-2" v-if="v$.formRegister.$error">
+						<ul class="list-unstyled">
+							<li v-for="error in getValidationErrors('confirmPassword')" class="d-flex align-items-center">
+								<i class="bi bi-exclamation-circle me-2"></i> {{ error }}
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="text-center">
-					<a href="@Url.Action("Login", "User")">Sign in</a>
-					<button type="submit" class="btn btn-success" v-on:click="register()">Sign Up</button>
+
+				<div class="d-grid gap-2">
+					<button type="button" class="btn btn-primary fw-bold shadow-sm py-2" v-on:click="register(this)">
+						Sign Up
+					</button>
 				</div>
-			</Form>
+
+				<div class="mt-3">
+					<small>Already have an account? <a href="@Url.Action("Login", "User")" class="text-primary fw-semibold">Sign in</a></small>
+				</div>
+			</form>
 		</div>
 	</div>
-	<loader refs="loader"></loader>
-</div>	
-
-@section Scripts{
+</div>
+@section Scripts {
+	<script src="~/js/components/loader.js"></script>
 
 	<script>
 		Vue.use(Toasted, {
@@ -89,38 +104,9 @@
 			duration: 3000
 		});
 
-		const {defineRule, configure, Field, Form, ErrorMessage } = VeeValidate;
-		const { required, email, min, max, confirmed} = VeeValidateRules;
 
-		Vue.component('Field', Field);
-		Vue.component('Form', Form);
-		Vue.component('ErrorMessage', ErrorMessage);
-
-		defineRule('required', required);
-		defineRule('email', email);
-		defineRule('min', min);
-		defineRule('max', max);
-		defineRule('confirmed', confirmed);
-
-		configure({
-			generateMessage: localize('en', {
-				messages: {
-					required: '{field} is required.',
-					email: '{field} must be valid email.',
-					min: '{field} must have at least {min} characters.',
-					max: '{field} must have no more than {max} characters.',
-					confirmed: 'Passwords do not match.'
-				},
-				names: {
-					email: 'Email',
-					firstName: 'FirstName',
-					lastName: 'LastName',
-					birthDate: 'BirthDate',
-					password: 'Password',
-					confirmPassword: 'Confirm Passoword'
-				}
-			})
-		})
+		Vue.use(window.vuelidate.default);
+		const {required, email, minLength, maxLength, sameAs} = window.validators;
 
 		var vue = new Vue({
 			el: '#app',
@@ -129,28 +115,136 @@
 					email: '',
 					firstName: '',
 					lastName: '',
-					birthData: '',
+					birthDate: '',
 					password: '',
 					confirmPassword: ''
 				},
-				validationErrors: []
+				fieldLabels: {
+					email: "Email",
+					firstName: "First name",
+					lastName: "Last name",
+					birthDate: "Birth date",
+					password: "Password",
+					confirmPassword: "Confirm password"
+				},
+				validationErrors: {
+					email: [],
+					firstName: [],
+					lastName: [],
+					birthDate: [],
+					password: [],
+					confirmPassword: []
+				}
+			},
+			validations: {
+				formRegister: {
+					email: {required, maxLength: maxLength(256), email},
+					birthDate: {required, messages: []},
+					firstName: {required, minLength: minLength(3), maxLength: maxLength(100)},
+					lastName: {required, minLength: minLength(3), maxLength: maxLength(100)},
+					password: {required, minLength: minLength(6),  maxLength: maxLength(256)},
+					confirmPassword: {required, sameAsPassword: sameAs('password'), maxLength: maxLength(256)}
+				}
+			},
+			computed: {
+				v$: function(){
+					return this.$v || {};
+				}
 			},
 			methods: {
+				getValidationErrors(fieldName){
+					return this.validationErrors[fieldName];
+				},
 				register: function(){
 					const self = this;
 
-					if(confirmPassword())
-					  
+					this.cleanValidationErrors();
+
+
+					self.v$.$touch();
+
+					if(self.v$.$invalid){
+						for(let field in this.v$.formRegister){
+							this.setMessages(field);
+						}
+						return;
+					}
 
 					const data = {
-						Email: formRegister.email,
-						FirstName: formRegister.firstName,
-						LastName
+						Email: self.formRegister.email,
+						FirstName: self.formRegister.firstName,
+						LastName: self.formRegister.lastName,
+						BirthDate: self.formRegister.birthDate,
+					    Password: self.formRegister.password
+					}
+
+					$.ajax({
+						url: '@Url.Action("Register", "User")',
+						type: "POST",
+						content: 'json',
+						contentType: 'application/json; charset=utf-8',
+						data: JSON.stringify(data),	
+						beforeSend: () => this.$refs.loader.showLoader(),
+						success: function(){
+							self.$toasted.success('User created successfully');
+						},
+						error: function(error){
+							console.log(error);
+
+							if(error.status == 400)
+								error.responseJSON.forEach((message) => self.$toasted.error(message));
+						    else
+								this.$toasted.error('An error ocurred in create the user.');
+
+						},
+						complete: () => this.$refs.loader.hideLoader()
+					})
+				},
+				getMessages: function(validatorKey, fieldName, params = {}){
+					const messages = {
+						required: "The {0} is required.",
+						email: "The {0} must be a valid email.",
+						minLength: "The {0} must have at least {1} characters.",
+						maxLength: "The {0} must have more than {1} characters.",
+						sameAsPassword: "No match passwords."
+					};
+
+					let message = "";
+
+					let fieldLabel = this.fieldLabels[fieldName];
+
+					if(params && params.min){
+						message = messages[validatorKey].replace("{0}", fieldLabel).replace("{1}", params.min);
+					}
+					else if(params && params.max){
+						message = messages[validatorKey].replace("{0}", fieldLabel).replace("{1}", params.max);
+					}
+					else{
+						message = messages[validatorKey].replace("{0}", fieldLabel);
+					}
+
+					return message;
+				},
+				cleanValidationErrors: function(){
+					this.validationErrors = {
+						email: [],
+						firstName: [],
+						lastName: [],
+						birthDate: [],
+						password: [],
+						confirmPassword: []
 					}
 				},
-				confirmPassword: function(){
-					return formRegister.password == formRegister.confirmPassword;
-						
+				setMessages: function(fieldName){
+					for(const validatorKey in this.v$.formRegister[fieldName].$params) {
+						if(!this.v$.formRegister[fieldName][validatorKey]){
+							const params = this.v$.formRegister[fieldName].$params[validatorKey];
+							const message = this.getMessages(validatorKey, fieldName, params);
+
+							if(message)
+							  this.validationErrors[fieldName].push(message);
+						}
+					}
 				}
 			},
 		});

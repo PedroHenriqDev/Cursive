@@ -18,7 +18,7 @@ public class UserClient : IUserClient
         _baseApiController = configuration["httpClient:baseApiUserController"] ?? throw new ArgumentNullException("The url of api cannot be null.");
     }
 
-    public async Task<IResponseDto<UserResponse>?> CreateAsync(UserRequest userRequest)
+    public async Task<IResponseDto<UserResponse>?> RequestToCreateAsync(UserRequest userRequest)
     {
         using (var httpClient = new HttpClient())
         {
@@ -30,7 +30,7 @@ public class UserClient : IUserClient
         }
     }
 
-    public async Task<IResponseDto<TokenResponse>?> LoginAsync(LoginRequest loginRequest)
+    public async Task<IResponseDto<TokenResponse>?> RequestToLoginAsync(LoginRequest loginRequest)
     {
         using (var httpClient = new HttpClient())
         {

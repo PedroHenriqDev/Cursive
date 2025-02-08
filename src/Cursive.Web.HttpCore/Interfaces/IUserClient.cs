@@ -6,6 +6,6 @@ namespace Cursive.Web.HttpCore.Interfaces;
 
 public interface IUserClient
 {
-    Task<IResponseDto<UserResponse>?> CreateAsync(UserRequest userRequest);
-    Task<IResponseDto<TokenResponse>?> LoginAsync(LoginRequest loginRequest);
+    Task<IResponseDto<UserResponse>?> RequestToCreateAsync(UserRequest userRequest);
+    Task<IResponseDto<TokenResponse>?> RequestToLoginAsync(LoginRequest loginRequest);
 }
