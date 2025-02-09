@@ -2,7 +2,7 @@
 
 namespace Cursive.Domain.Entities.Abstractions;
 
-public abstract class Entity
+public abstract class Entity : IValidate
 {
     public Entity(Guid id, DateTime createdAt)
     {
