@@ -411,6 +411,7 @@ src/Cursive.Infra/bin
 src/Cursive.Infra/debug
 src/Cursive.Application/bin
 src/Cursive.Application/debug
+src/Cursive.Web.MVC/appsettings.json
 Cursive.API/bin
 Cursive.API/debug
 Cursive.Domain/bin
