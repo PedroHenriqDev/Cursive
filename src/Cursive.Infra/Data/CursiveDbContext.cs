@@ -6,6 +6,9 @@ namespace Cursive.Infra.Data;
 
 public sealed class CursiveDbContext : DbContext
 {
+    public DbSet<User> Users { get; private set; }
+    public DbSet<Document> Document { get; private set; }
+
     public CursiveDbContext(DbContextOptions<CursiveDbContext> dbContext) : base(dbContext) 
     {
     }
@@ -14,6 +17,4 @@ public sealed class CursiveDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new UserConfig());
     }
-
-    public DbSet<User> Users { get; private set; }
 }

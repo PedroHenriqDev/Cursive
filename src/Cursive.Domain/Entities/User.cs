@@ -25,6 +25,7 @@ public class User : Entity
     public string Password { get; set; } = string.Empty;
     public string Salt { get; set;} = string.Empty;
     public DateTime BirthDate { get; set; }
+    public ICollection<Document> Documents { get; set; } = new List<Document>();
 
     public override Validation Validate()
     {
