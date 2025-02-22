@@ -97,6 +97,15 @@ namespace Cursive.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not found documents.
+        /// </summary>
+        internal static string NOT_FOUND_DOCUMENTS {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_DOCUMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not found expire time in configuration..
         /// </summary>
         internal static string NOT_FOUND_EXPIRE_TIME {
@@ -120,6 +129,15 @@ namespace Cursive.Application.Resources {
         internal static string NOT_FOUND_USER {
             get {
                 return ResourceManager.GetString("NOT_FOUND_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successful.
+        /// </summary>
+        internal static string SUCCESSFUL {
+            get {
+                return ResourceManager.GetString("SUCCESSFUL", resourceCulture);
             }
         }
     }

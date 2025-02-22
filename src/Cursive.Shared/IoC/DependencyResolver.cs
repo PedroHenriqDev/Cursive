@@ -37,6 +37,7 @@ public static class DependencyResolver
         serviceCollection.AddScoped<ICryptoService, CryptoService>();
         serviceCollection.AddScoped<ITokenService, TokenService>();
         serviceCollection.AddScoped<IClaimService, ClaimService>();
+        serviceCollection.AddScoped<IQueryService, QueryService>();
 
         return serviceCollection;
     }

@@ -7,4 +7,5 @@ namespace Cursive.Application.Services.Interfaces;
 public interface IDocumentService
 {
     Task<IResponseDto<DocumentResponse>> CreateAsync(DocumentRequest request);
+    Task<IResponseDto<IEnumerable<DocumentResponse>>> SearchAsync(FilterDocumentRequest filter);
 }

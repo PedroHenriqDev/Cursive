@@ -45,7 +45,7 @@ public class UserService : IUserService
         if (errorMessages.Any())
             return ResponseFactory.BadRequest(errorMessages, user.ToUserResponse());
 
-        _cryptoService.EncryptPassword(user);
+        _cryptoService.EncryptPassword(user);       
 
         await _unitOfWork.UserRepository.CreateAsync(user);
         await _unitOfWork.SaveAsync();

@@ -138,4 +138,10 @@
   <data name="NOT_FOUND_SECRET_KEY" xml:space="preserve">
     <value>Not found secret key in configuration.</value>
   </data>
+  <data name="NOT_FOUND_DOCUMENTS" xml:space="preserve">
+    <value>Not found documents</value>
+  </data>
+  <data name="SUCCESSFUL" xml:space="preserve">
+    <value>Successful</value>
+  </data>
 </root>
