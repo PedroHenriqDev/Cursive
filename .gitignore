@@ -410,6 +410,7 @@ src/Cursive.Shared/debug
 src/Cursive.Infra/bin
 src/Cursive.Infra/debug
 src/Cursive.Application/bin
+src/Cursive.API/appsettings.json
 src/Cursive.Application/debug
 src/Cursive.Web.MVC/appsettings.json
 Cursive.API/bin

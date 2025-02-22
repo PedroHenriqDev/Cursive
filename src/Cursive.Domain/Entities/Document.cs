@@ -1,11 +1,24 @@
 ﻿using Cursive.Domain.Entities.Abstractions;
 using Cursive.Domain.Enums;
+using Cursive.Domain.Utils;
 using Cursive.Domain.Validations;
 
 namespace Cursive.Domain.Entities;
 
 public class Document : Entity
 {
+    public Document(string title, string text, EDocumentType type, Guid userId) : base(GuidUtils.GenerateId(), DateTime.Now)
+    {
+        Title = title;
+        Text = text;
+        Type = type;
+        UserId = userId;
+    }
+
+    public Document()
+    {
+    }
+
     public string Title { get; set; } = string.Empty;
     public string Text { get; set; } = string.Empty;
     public EDocumentType Type { get; set; } = EDocumentType.Text;

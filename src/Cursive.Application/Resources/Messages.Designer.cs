@@ -22,7 +22,7 @@ namespace Cursive.Application.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {   
+    internal class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -111,6 +111,15 @@ namespace Cursive.Application.Resources {
         internal static string NOT_FOUND_SECRET_KEY {
             get {
                 return ResourceManager.GetString("NOT_FOUND_SECRET_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found user  = {0}.
+        /// </summary>
+        internal static string NOT_FOUND_USER {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_USER", resourceCulture);
             }
         }
     }

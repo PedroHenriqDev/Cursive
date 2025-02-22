@@ -129,6 +129,9 @@
   <data name="LOGIN_SUCESSFULLY" xml:space="preserve">
     <value>Login sucessfully</value>
   </data>
+  <data name="NOT_FOUND_USER" xml:space="preserve">
+    <value>Not found user  = {0}</value>
+  </data>
   <data name="NOT_FOUND_EXPIRE_TIME" xml:space="preserve">
     <value>Not found expire time in configuration.</value>
   </data>

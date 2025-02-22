@@ -1,4 +1,4 @@
-﻿using Cursive.Communication.Dtos.User.Responses;
+﻿using Cursive.Communication.Dtos.Responses;
 using Cursive.Web.HttpCore.Helpers;
 using Cursive.Web.MVC.Services.Interfaces;
 

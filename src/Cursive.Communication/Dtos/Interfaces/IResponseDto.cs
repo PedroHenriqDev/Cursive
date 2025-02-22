@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text.Json.Serialization;
 
 namespace Cursive.Communication.Dtos.Interfaces;
 

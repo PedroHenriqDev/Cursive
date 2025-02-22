@@ -12,12 +12,15 @@ public sealed class UnitOfWork : IUnitOfWork
     {
         _dbContext = dbContext;
         _userRepository = new UserRepository(_dbContext);
+        _documentRepository = new DocumentRepository(_dbContext);
     }
 
     private readonly CursiveDbContext _dbContext;
     private readonly IUserRepository _userRepository;
+    private readonly IDocumentRepository _documentRepository;
 
     public IUserRepository UserRepository => _userRepository ?? new UserRepository(_dbContext);
+    public IDocumentRepository DocumentRepository => _documentRepository ?? new DocumentRepository(_dbContext);
 
     public async Task SaveAsync()
     {

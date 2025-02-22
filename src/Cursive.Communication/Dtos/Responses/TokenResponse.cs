@@ -1,4 +1,4 @@
-﻿namespace Cursive.Communication.Dtos.User.Responses;
+﻿namespace Cursive.Communication.Dtos.Responses;
 
 public class TokenResponse
 {

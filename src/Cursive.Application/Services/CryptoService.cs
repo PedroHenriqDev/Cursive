@@ -1,5 +1,4 @@
-﻿using Cursive.Communication.Dtos.Responses;
-using Cursive.Application.Services.Interfaces;
+﻿using Cursive.Application.Services.Interfaces;
 using Cursive.Domain.Entities;
 
 namespace Cursive.Application.Services;

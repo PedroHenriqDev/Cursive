@@ -1,6 +1,6 @@
 ﻿using Cursive.Communication.Dtos.Interfaces;
-using Cursive.Communication.Dtos.User.Requests;
-using Cursive.Communication.Dtos.User.Responses;
+using Cursive.Communication.Dtos.Requests;
+using Cursive.Communication.Dtos.Responses;
 using Cursive.Web.HttpCore.Helpers;
 using Cursive.Web.HttpCore.Interfaces;
 using Microsoft.Extensions.Configuration;

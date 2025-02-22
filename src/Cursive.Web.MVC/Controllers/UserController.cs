@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using Cursive.Communication.Dtos.Interfaces;
-using Cursive.Communication.Dtos.User.Requests;
-using Cursive.Communication.Dtos.User.Responses;
+using Cursive.Communication.Dtos.Requests;
+using Cursive.Communication.Dtos.Responses;
 using Cursive.Web.HttpCore.Interfaces;
 using Cursive.Web.MVC.Extensions;
 using Cursive.Web.MVC.Models;

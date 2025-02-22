@@ -1,8 +1,8 @@
 ﻿using Cursive.Communication.Dtos.Interfaces;
-using Cursive.Communication.Dtos.User.Requests;
-using Cursive.Communication.Dtos.User.Responses;
 using Cursive.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Cursive.Communication.Dtos.Requests;
+using Cursive.Communication.Dtos.Responses;
 
 namespace Cursive.API.Controllers;
 

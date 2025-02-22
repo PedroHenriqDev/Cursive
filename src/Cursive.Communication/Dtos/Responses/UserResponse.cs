@@ -1,10 +1,10 @@
-﻿namespace Cursive.Communication.Dtos.User.Responses;
+﻿namespace Cursive.Communication.Dtos.Responses;
 
 public class UserResponse
 {
     public UserResponse()
     {
-        FirstName = string.Empty; 
+        FirstName = string.Empty;
         LastName = string.Empty;
         Email = string.Empty;
     }

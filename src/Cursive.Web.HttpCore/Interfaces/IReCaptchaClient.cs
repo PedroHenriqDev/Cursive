@@ -1,5 +1,5 @@
 ﻿using Cursive.Communication.Dtos.Interfaces;
-using Cursive.Communication.Dtos.User.Responses;
+using Cursive.Communication.Dtos.Responses;
 
 namespace Cursive.Web.HttpCore.Interfaces;
 
