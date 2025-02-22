@@ -1,11 +1,11 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Cursive.Communication.Dtos.User.Responses;
 using Cursive.Application.Services.Interfaces;
 using Cursive.Application.Utils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Cursive.Communication.Dtos.Responses;
 
 namespace Cursive.Application.Services;
 

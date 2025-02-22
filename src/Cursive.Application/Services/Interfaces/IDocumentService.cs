@@ -4,8 +4,7 @@ using Cursive.Communication.Dtos.Responses;
 
 namespace Cursive.Application.Services.Interfaces;
 
-public interface IUserService
+public interface IDocumentService
 {
-    Task<IResponseDto<UserResponse>> CreateAsync(UserRequest request);
-    Task<IResponseDto<TokenResponse>> LoginAsync(LoginRequest request);
+    Task<IResponseDto<DocumentResponse>> CreateAsync(DocumentRequest request);
 }

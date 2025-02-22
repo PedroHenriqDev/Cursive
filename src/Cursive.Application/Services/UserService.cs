@@ -1,7 +1,5 @@
 ﻿using System.Security.Claims;
 using Cursive.Communication.Dtos.Interfaces;
-using Cursive.Communication.Dtos.User.Requests;
-using Cursive.Communication.Dtos.User.Responses;
 using Cursive.Communication.Factories;
 using Cursive.Application.Mappers;
 using Cursive.Application.Resources;
@@ -9,6 +7,8 @@ using Cursive.Application.Services.Interfaces;
 using Cursive.Domain.Entities;
 using Cursive.Domain.Validations;
 using Cursive.Infra.UnitOfWork.Interfaces;
+using Cursive.Communication.Dtos.Requests;
+using Cursive.Communication.Dtos.Responses;
 
 namespace Cursive.Application.Services;
 

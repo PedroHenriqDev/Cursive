@@ -1,5 +1,5 @@
-﻿using Cursive.Communication.Dtos.User.Requests;
-using Cursive.Communication.Dtos.User.Responses;
+﻿using Cursive.Communication.Dtos.Requests;
+using Cursive.Communication.Dtos.Responses;
 using Cursive.Domain.Entities;
 using Cursive.Domain.ValueObjects;
 
