@@ -13,6 +13,7 @@ public interface IRepository<TEntity> where TEntity : Entity
     Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate);
     Task<IEnumerable<TEntity>> GetAllAsync();
     Task<IEnumerable<TEntity>> GetAllNotTrackingAsync();
+    Task<IEnumerable<TEntity>> GetIncludesAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes);
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
     Task CreateAsync(TEntity entity);
     void Update(TEntity entity);

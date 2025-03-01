@@ -1,4 +1,5 @@
-﻿using Cursive.Application.Services.Interfaces;
+﻿using Cursive.API.Filters;
+using Cursive.Application.Services.Interfaces;
 using Cursive.Communication.Dtos.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
@@ -20,12 +21,27 @@ public class DocumentController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IResponseDto<DocumentResponse>>> CreateAsync([FromBody] DocumentRequest request)
     {
         IResponseDto<DocumentResponse> response = await _documentService.CreateAsync(request);
 
+        return StatusCode((int)response.StatusCode, response);
+    }
+
+    [HttpPut]
+    [Route("{id:Guid}")]
+    [Authorize]
+    [TypeFilter(typeof(MatchDocumentUserFilterAttribute))]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IResponseDto<DocumentResponse>>> UpdateAsync([FromRoute] Guid id, [FromBody] DocumentPutRequest request)
+    {
+        IResponseDto<DocumentResponse> response = await _documentService.UpdateAsync(id, request);
+        
         return StatusCode((int)response.StatusCode, response);
     }
 

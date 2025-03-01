@@ -65,5 +65,17 @@ namespace Cursive.Infra.Repositories
         {
             return await _dbContext.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
+
+        public async Task<IEnumerable<TEntity>> GetIncludesAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes)
+        {
+            IQueryable<TEntity> entities = All.Where(predicate);
+
+            foreach(Expression<Func<TEntity, object>> include in includes)
+            {
+                entities.Include(include);
+            }
+
+            return await entities.ToListAsync();
+        }
     }
 }

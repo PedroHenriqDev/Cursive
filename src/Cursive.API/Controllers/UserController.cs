@@ -42,6 +42,7 @@ public class UserController : ControllerBase
     [Route("{id:Guid}")]
     [ProducesResponseType(typeof(IResponseDto<UserResponse>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<UserResponse>), statusCode: StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
     [TypeFilter(typeof(MatchUserIdFilterAttribute))]
     public async Task<ActionResult<IResponseDto<UserResponse>>> UpdateAsync([FromRoute] Guid id, [FromBody] UserRequest userRequest)
     {

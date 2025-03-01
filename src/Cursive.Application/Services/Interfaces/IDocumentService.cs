@@ -8,4 +8,5 @@ public interface IDocumentService
 {
     Task<IResponseDto<DocumentResponse>> CreateAsync(DocumentRequest request);
     Task<IResponseDto<IEnumerable<DocumentResponse>>> SearchAsync(FilterDocumentRequest filter);
+    Task<IResponseDto<DocumentResponse>> UpdateAsync(Guid documentId, DocumentPutRequest request);
 }

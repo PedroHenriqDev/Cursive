@@ -147,4 +147,7 @@
   <data name="INVALID_TOKEN" xml:space="preserve">
     <value>Invalid Token</value>
   </data>
+  <data name="NOT_FOUND_DOCUMENT" xml:space="preserve">
+    <value>Not found document = {}</value>
+  </data>
 </root>

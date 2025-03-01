@@ -75,7 +75,7 @@ public class UserService : IUserService
     {
         if (await _unitOfWork.UserRepository.GetByIdAsync(userId) is User user)
         {
-            request.LoadUser(user);
+            request.MapToUser(user);
             Validation validation = user.Validate();
 
             if (!validation.IsValid)

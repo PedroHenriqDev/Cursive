@@ -26,7 +26,7 @@ public static class UserMapper
         return new User(new Name(request.FirstName, request.LastName), request.Email, request.Password, request.BirthDate);
     }
 
-    public static void LoadUser(this UserRequest request, User user)
+    public static void MapToUser(this UserRequest request, User user)
     {
         user.Name = new Name(request.FirstName, request.LastName);
         user.BirthDate = request.BirthDate;

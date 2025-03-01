@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Cursive.Communication.Dtos.Responses;
 using Cursive.Application.Resources;
+using Microsoft.AspNetCore.Http;
 
 namespace Cursive.Application.Services;
 
@@ -54,5 +55,17 @@ public class TokenService : ITokenService
         byte[] secretKeyAsBase64 = Encoding.ASCII.GetBytes(secretKey);
         var symetricKey = new SigningCredentials(new SymmetricSecurityKey(secretKeyAsBase64), SecurityAlgorithms.HmacSha256Signature);
         return symetricKey;
+    }
+
+    public string GetTokenByHttpRequest(HttpContext context)
+    {
+        string token = string.Empty;
+
+        if (context.Request.Headers.TryGetValue("Authorization", out var authHeader))
+        {
+            token = authHeader.ToString().Split(" ").Last();
+        }
+
+        return token;
     }
 }

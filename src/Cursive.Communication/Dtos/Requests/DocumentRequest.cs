@@ -5,5 +5,5 @@ public class DocumentRequest
     public string Title { get; set; } = string.Empty;
     public string Text { get; set; } = string.Empty;
     public string Type { get; set; } = string.Empty;
-    public Guid UserId { get; set; }
+    public virtual Guid UserId { get; set; }
 }

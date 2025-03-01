@@ -5,4 +5,5 @@ namespace Cursive.Application.Services.Interfaces;
 public interface IClaimService
 {
     IList<Claim> CreateAuthClaims(string name, string id);
+    string GetUserId(IList<Claim> authClaims);
 }

@@ -2,6 +2,7 @@
 using Cursive.API.Filters;
 using Cursive.Application.Utils;
 using Microsoft.AspNetCore.Authentication.BearerToken;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Cursive.API.Extensions;
@@ -14,8 +15,8 @@ public static class IServiceCollectionResolver
 
         serviceCollection.AddAuthentication(opt =>
         {
-            opt.DefaultAuthenticateScheme = BearerTokenDefaults.AuthenticationScheme;
-            opt.DefaultChallengeScheme = BearerTokenDefaults.AuthenticationScheme;
+            opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer(opt =>
         {
             opt.RequireHttpsMetadata = false;
@@ -36,6 +37,7 @@ public static class IServiceCollectionResolver
     public static IServiceCollection AddActionFilters(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddScoped<MatchUserIdFilterAttribute>();
+        serviceCollection.AddScoped<MatchDocumentUserFilterAttribute>();
         return serviceCollection;
     }
 }

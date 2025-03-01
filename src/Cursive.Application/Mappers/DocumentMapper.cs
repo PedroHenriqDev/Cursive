@@ -20,6 +20,13 @@ public static class DocumentMapper
         return new Document(request.Type, request.Text, documentType, request.UserId);
     }
 
+    public static void MapToDocument(this DocumentRequest request, Document document)
+    {
+        document.Title = request.Title;
+        document.Text = request.Text;
+        document.Type = Enum.Parse<EDocumentType>(request.Type);
+    }
+
     public static DocumentResponse ToResponse(this Document response)
     {
         return new DocumentResponse()

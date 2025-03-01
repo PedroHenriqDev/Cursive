@@ -106,6 +106,15 @@ namespace Cursive.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not found document = {}.
+        /// </summary>
+        internal static string NOT_FOUND_DOCUMENT {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_DOCUMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not found documents.
         /// </summary>
         internal static string NOT_FOUND_DOCUMENTS {

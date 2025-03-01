@@ -15,4 +15,17 @@ public class ClaimService : IClaimService
 
         return claims;
     }
+
+    public string GetUserId(IList<Claim> authClaims)
+    {
+        string userId = string.Empty;
+        Claim? userIdClaim = authClaims.FirstOrDefault(c => c.Type == "ID");
+
+        if (userIdClaim != null)
+        {
+             userId = userIdClaim.Value;
+        }
+
+        return userId;
+    }
 }

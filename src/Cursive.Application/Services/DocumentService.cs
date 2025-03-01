@@ -46,11 +46,32 @@ public class DocumentService : IDocumentService
 
     public async Task<IResponseDto<IEnumerable<DocumentResponse>>> SearchAsync(FilterDocumentRequest filter)
     {
-        IEnumerable<Document> _documents = await _queryService.MountDocumentSearchQuery(filter).ToListAsync();
+        IEnumerable<Document> documents = await _queryService.MountDocumentSearchQuery(filter).ToListAsync();
 
-        if (!_documents.Any())
+        if (!documents.Any())
             return ResponseFactory.NotFound(Messages.NOT_FOUND_DOCUMENTS, Enumerable.Empty<DocumentResponse>());
 
-        return ResponseFactory.Ok(Messages.SUCCESSFUL, _documents.Select(d => d.ToResponse()));
+        return ResponseFactory.Ok(Messages.SUCCESSFUL, documents.Select(d => d.ToResponse()));
+    }
+
+    public async Task<IResponseDto<DocumentResponse>> UpdateAsync(Guid documentId, DocumentPutRequest request)
+    {
+        if(await _unitOfWork.DocumentRepository.GetByIdAsync(documentId) is Document document)
+        {
+            request.MapToDocument(document);
+
+            Validation validation = document.Validate();
+            if (!validation.IsValid)
+            {
+                return ResponseFactory.BadRequest(validation.Messages.Select(m => m.Message).ToList(), document.ToResponse());
+            }
+
+            _unitOfWork.DocumentRepository.Update(document);
+            await _unitOfWork.SaveAsync();
+
+            return ResponseFactory.Ok(Messages.SUCCESSFUL, document.ToResponse());
+        }
+
+        return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_DOCUMENT, documentId), new DocumentResponse());
     }
 }
