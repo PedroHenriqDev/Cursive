@@ -6,4 +6,5 @@ namespace Cursive.Application.Services.Interfaces;
 public interface ITokenService
 {
     TokenResponse GenerateToken(IList<Claim> authClaims);
+    IList<Claim> GetAuthClaims(string token);
 }

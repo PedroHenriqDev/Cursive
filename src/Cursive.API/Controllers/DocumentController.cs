@@ -2,6 +2,7 @@
 using Cursive.Communication.Dtos.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cursive.API.Controllers;
@@ -30,6 +31,7 @@ public class DocumentController : Controller
 
     [HttpGet]
     [Route("search")]
+    [Authorize]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IResponseDto<DocumentResponse>>> SearchAsync([FromQuery] FilterDocumentRequest filter)

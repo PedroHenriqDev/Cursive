@@ -9,6 +9,7 @@ public interface IRepository<TEntity> where TEntity : Entity
     IQueryable<TEntity> All { get; }
     IQueryable<TEntity> AllNotTracking { get; }
     Task<TEntity?> GetByIdAsync(Guid id);
+    Task<TEntity?> GetByIdNotTrackingAsync(Guid id);
     Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate);
     Task<IEnumerable<TEntity>> GetAllAsync();
     Task<IEnumerable<TEntity>> GetAllNotTrackingAsync();

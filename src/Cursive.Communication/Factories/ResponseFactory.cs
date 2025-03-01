@@ -9,8 +9,7 @@ public static class ResponseFactory
     {
         return new ResponseDto<T>(System.Net.HttpStatusCode.BadRequest, new List<string> { message }, value);
     }
-
-
+    
     public static IResponseDto<T> BadRequest<T>(IList<string> messages, T value)
     {
         return new ResponseDto<T>(System.Net.HttpStatusCode.BadRequest, messages, value);

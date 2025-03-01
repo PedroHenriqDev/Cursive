@@ -144,4 +144,7 @@
   <data name="SUCCESSFUL" xml:space="preserve">
     <value>Successful</value>
   </data>
+  <data name="INVALID_TOKEN" xml:space="preserve">
+    <value>Invalid Token</value>
+  </data>
 </root>

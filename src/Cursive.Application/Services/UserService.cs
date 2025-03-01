@@ -70,4 +70,25 @@ public class UserService : IUserService
         IList<Claim> authClaims = _claimService.CreateAuthClaims(user.Email, user.Id.ToString());
         return ResponseFactory.Ok(Messages.LOGIN_SUCESSFULLY, _tokenService.GenerateToken(authClaims));
     }
+
+    public async Task<IResponseDto<UserResponse>> UpdateAsync(Guid userId, UserRequest request)
+    {
+        if (await _unitOfWork.UserRepository.GetByIdAsync(userId) is User user)
+        {
+            request.LoadUser(user);
+            Validation validation = user.Validate();
+
+            if (!validation.IsValid)
+                return ResponseFactory.BadRequest(validation.Messages.Select(v => v.Message).ToList(), user.ToUserResponse());
+
+            _cryptoService.EncryptPassword(user);
+
+            _unitOfWork.UserRepository.Update(user);
+            await _unitOfWork.SaveAsync();
+            
+            return ResponseFactory.Ok(Messages.SUCCESSFUL, user.ToUserResponse());
+        }
+
+        return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_USER, userId), new UserResponse());
+    }
 }

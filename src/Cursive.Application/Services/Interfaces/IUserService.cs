@@ -8,4 +8,5 @@ public interface IUserService
 {
     Task<IResponseDto<UserResponse>> CreateAsync(UserRequest request);
     Task<IResponseDto<TokenResponse>> LoginAsync(LoginRequest request);
+    Task<IResponseDto<UserResponse>> UpdateAsync(Guid userId, UserRequest request);
 }

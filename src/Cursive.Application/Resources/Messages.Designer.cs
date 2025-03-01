@@ -88,6 +88,15 @@ namespace Cursive.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Token.
+        /// </summary>
+        internal static string INVALID_TOKEN {
+            get {
+                return ResourceManager.GetString("INVALID_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login sucessfully.
         /// </summary>
         internal static string LOGIN_SUCESSFULLY {

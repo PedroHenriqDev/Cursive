@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Cursive.API.Filters;
 using Cursive.Application.Utils;
 using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.IdentityModel.Tokens;
@@ -29,6 +30,12 @@ public static class IServiceCollectionResolver
             };
         });   
 
+        return serviceCollection;
+    }
+
+    public static IServiceCollection AddActionFilters(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddScoped<MatchUserIdFilterAttribute>();
         return serviceCollection;
     }
 }

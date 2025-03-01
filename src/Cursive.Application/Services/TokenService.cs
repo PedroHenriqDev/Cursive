@@ -6,6 +6,7 @@ using Cursive.Application.Utils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Cursive.Communication.Dtos.Responses;
+using Cursive.Application.Resources;
 
 namespace Cursive.Application.Services;
 
@@ -35,6 +36,17 @@ public class TokenService : ITokenService
         SecurityToken? token = tokenHandler.CreateToken(tokenDescriptor);
         
         return new TokenResponse(tokenHandler.WriteToken(token), expireTime);
+    }
+
+    public IList<Claim> GetAuthClaims(string token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var jwtToken = tokenHandler.ReadJwtToken(token);
+
+        if (jwtToken == null)
+            throw new ArgumentNullException(Messages.INVALID_TOKEN);
+
+        return jwtToken.Claims.ToList();
     }
 
     public SigningCredentials GenerateSigningCredentials(string secretKey)

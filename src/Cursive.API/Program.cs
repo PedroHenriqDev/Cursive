@@ -18,6 +18,7 @@ public class Program
         builder.Services.AddSqlServer(builder.Configuration);
         builder.Services.AddUnitOfWork();
         builder.Services.AddServices();
+        builder.Services.AddActionFilters();
         builder.Services.AddFileLogger(builder.Configuration);
         builder.Services.AddSingleton<GlobalExceptionMiddleware>();
         builder.Services.AddDefaultCorsAllowAll();

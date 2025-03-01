@@ -60,5 +60,10 @@ namespace Cursive.Infra.Repositories
         {
             return await _dbContext.Set<TEntity>().AnyAsync(predicate);
         }
+
+        public async Task<TEntity?> GetByIdNotTrackingAsync(Guid id)
+        {
+            return await _dbContext.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+        }
     }
 }
