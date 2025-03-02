@@ -1,14 +1,11 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using Cursive.Application.Mappers;
+﻿using Cursive.Application.Mappers;
 using Cursive.Application.Resources;
 using Cursive.Application.Services.Interfaces;
-using Cursive.Communication.Dtos;
 using Cursive.Communication.Dtos.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
 using Cursive.Communication.Factories;
 using Cursive.Domain.Entities;
-using Cursive.Domain.Repositories.Interfaces;
 using Cursive.Domain.Validations;
 using Cursive.Infra.UnitOfWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +39,19 @@ public class DocumentService : IDocumentService
         await _unitOfWork.SaveAsync();
 
         return ResponseFactory.Created(Messages.CREATED_SUCESSFULLY, document.ToResponse());
+    }
+
+    public async Task<IResponseDto<DocumentResponse>> DeleteAsync(Guid documentId)
+    {
+        if(await _unitOfWork.DocumentRepository.GetByIdAsync(documentId) is Document document) 
+        {
+            _unitOfWork.DocumentRepository.Delete(document);
+            await _unitOfWork.SaveAsync();
+
+            return ResponseFactory.Ok(Messages.SUCCESSFUL, document.ToResponse());
+        }
+
+        return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_DOCUMENT, documentId), new DocumentResponse());
     }
 
     public async Task<IResponseDto<IEnumerable<DocumentResponse>>> SearchAsync(FilterDocumentRequest filter)

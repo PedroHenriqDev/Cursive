@@ -14,10 +14,14 @@ namespace Cursive.API.Controllers;
 public class DocumentController : Controller
 {
     private readonly IDocumentService _documentService;
+    private readonly ITokenService _tokenService;
+    private readonly IClaimService _claimService;
 
-    public DocumentController(IDocumentService service)
+    public DocumentController(IDocumentService service, ITokenService tokenService, IClaimService claimService)
     {
         _documentService = service;
+        _tokenService = tokenService;
+        _claimService = claimService;
     }
 
     [HttpPost]
@@ -26,6 +30,12 @@ public class DocumentController : Controller
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IResponseDto<DocumentResponse>>> CreateAsync([FromBody] DocumentRequest request)
     {
+        string token = _tokenService.GetTokenByHttpRequest(HttpContext);
+        string userId = _claimService.GetUserId(_tokenService.GetAuthClaims(token));
+
+        if(userId.ToLower() != request.UserId.ToString().ToLower())
+            return BadRequest();
+
         IResponseDto<DocumentResponse> response = await _documentService.CreateAsync(request);
 
         return StatusCode((int)response.StatusCode, response);
@@ -37,6 +47,7 @@ public class DocumentController : Controller
     [TypeFilter(typeof(MatchDocumentUserFilterAttribute))]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IResponseDto<DocumentResponse>>> UpdateAsync([FromRoute] Guid id, [FromBody] DocumentPutRequest request)
     {
@@ -44,6 +55,21 @@ public class DocumentController : Controller
         
         return StatusCode((int)response.StatusCode, response);
     }
+
+    [HttpDelete]
+    [Route("{id:Guid}")]
+    [Authorize]
+    [TypeFilter(typeof(MatchDocumentUserFilterAttribute))]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IResponseDto<DocumentResponse>>> DeleteAsync([FromRoute] Guid id)
+    {
+        IResponseDto<DocumentResponse> response = await _documentService.DeleteAsync(id);
+        
+        return StatusCode((int)response.StatusCode, response);
+    }
+
 
     [HttpGet]
     [Route("search")]
