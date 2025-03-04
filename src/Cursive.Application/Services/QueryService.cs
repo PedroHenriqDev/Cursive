@@ -44,6 +44,9 @@ public class QueryService : IQueryService
         if(!string.IsNullOrEmpty(filter.Title) && !queryContext.HaveConditionById)
             query = query.Where(d => d.Title == filter.Title);
 
+        if(filter.UserId != Guid.Empty && !queryContext.HaveConditionById)
+            query = query.Where(d => d.UserId == filter.UserId);
+
         return query;
     }
 }
