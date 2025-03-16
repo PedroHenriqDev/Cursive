@@ -150,4 +150,7 @@
   <data name="NOT_FOUND_DOCUMENT" xml:space="preserve">
     <value>Not found document = {}</value>
   </data>
+  <data name="NOT_FOUND_USER_ID" xml:space="preserve">
+    <value>Not found user with id {0}</value>
+  </data>
 </root>

@@ -9,6 +9,7 @@ using Cursive.Domain.Validations;
 using Cursive.Infra.UnitOfWork.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Cursive.Application.Services;
 
@@ -90,5 +91,15 @@ public class UserService : IUserService
         }
 
         return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_USER, userId), new UserResponse());
+    }
+
+    public async Task<IResponseDto<UserResponse>> GetByIdAsync(Guid userId)
+    { 
+        if(await _unitOfWork.UserRepository.GetByIdAsync(userId) is User user)
+        {
+            return ResponseFactory.Ok(Messages.SUCCESSFUL, user.ToUserResponse());
+        }
+
+        return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_USER_ID, userId), new UserResponse());
     }
 }

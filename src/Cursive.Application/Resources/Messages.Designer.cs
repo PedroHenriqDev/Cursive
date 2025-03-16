@@ -151,6 +151,15 @@ namespace Cursive.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not found user with id {0}.
+        /// </summary>
+        internal static string NOT_FOUND_USER_ID {
+            get {
+                return ResourceManager.GetString("NOT_FOUND_USER_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successful.
         /// </summary>
         internal static string SUCCESSFUL {

@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using System.Web.Http.Controllers;
+﻿using System.Web.Http.Controllers;
 using Cursive.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -21,7 +20,6 @@ public class MatchUserIdFilterAttribute : Attribute, IActionFilter
 
     public async Task<HttpResponseMessage> ExecuteActionFilterAsync(HttpActionContext actionContext, CancellationToken cancellationToken, Func<Task<HttpResponseMessage>> continuation)
     {
-
         return await continuation();
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using Cursive.API.Filters;
 using Cursive.Application.Utils;
-using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -29,7 +28,7 @@ public static class IServiceCollectionResolver
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
                 RequireExpirationTime = true,
             };
-        });   
+        });
 
         return serviceCollection;
     }

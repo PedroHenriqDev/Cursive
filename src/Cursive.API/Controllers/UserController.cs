@@ -29,6 +29,16 @@ public class UserController : ControllerBase
         return StatusCode((int)response.StatusCode, response);
     }
 
+    [HttpGet]
+    [Route("{id:guid}")]
+    [ProducesResponseType(typeof(IResponseDto<UserResponse>), statusCode:  StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResponseDto<UserResponse>), statusCode: StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IResponseDto<UserResponse>>> GetByIdAsync([FromRoute] Guid id)
+    {
+        IResponseDto<UserResponse> response = await _userService.GetByIdAsync(id);
+        return StatusCode((int)response.StatusCode, response);
+    }
+
     [HttpPost("login")]
     [ProducesResponseType(typeof(IResponseDto<string>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<string>), statusCode: StatusCodes.Status400BadRequest)]
