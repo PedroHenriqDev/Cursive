@@ -9,7 +9,6 @@ using Cursive.Domain.Validations;
 using Cursive.Infra.UnitOfWork.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Cursive.Application.Services;
 
@@ -78,7 +77,7 @@ public class UserService : IUserService
         {
             request.MapToUser(user);
             Validation validation = user.Validate();
-
+                      
             if (!validation.IsValid)
                 return ResponseFactory.BadRequest(validation.Messages.Select(v => v.Message).ToList(), user.ToUserResponse());
 

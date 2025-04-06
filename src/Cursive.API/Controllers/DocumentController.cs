@@ -70,6 +70,19 @@ public class DocumentController : Controller
         return StatusCode((int)response.StatusCode, response);
     }
 
+    [HttpGet]
+    [Route("{id:Guid}")]
+    [Authorize]
+    [TypeFilter(typeof(MatchDocumentUserFilterAttribute))]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IResponseDto<DocumentResponse>>> GetById([FromRoute] Guid id)
+    {
+        IResponseDto<DocumentResponse> response = await _documentService.GetByIdAsync(id);
+
+        return StatusCode((int)response.StatusCode, response);
+    }
 
     [HttpGet]
     [Route("search")]

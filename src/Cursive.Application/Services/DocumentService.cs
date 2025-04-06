@@ -1,4 +1,5 @@
-﻿using Cursive.Application.Mappers;
+﻿using Azure;
+using Cursive.Application.Mappers;
 using Cursive.Application.Resources;
 using Cursive.Application.Services.Interfaces;
 using Cursive.Communication.Dtos.Interfaces;
@@ -48,6 +49,16 @@ public class DocumentService : IDocumentService
             _unitOfWork.DocumentRepository.Delete(document);
             await _unitOfWork.SaveAsync();
 
+            return ResponseFactory.Ok(Messages.SUCCESSFUL, document.ToResponse());
+        }
+
+        return ResponseFactory.NotFound(string.Format(Messages.NOT_FOUND_DOCUMENT, documentId), new DocumentResponse());
+    }
+
+    public async Task<IResponseDto<DocumentResponse>> GetByIdAsync(Guid documentId)
+    {
+        if(await _unitOfWork.DocumentRepository.GetByIdAsync(documentId) is Document document)
+        {
             return ResponseFactory.Ok(Messages.SUCCESSFUL, document.ToResponse());
         }
 
