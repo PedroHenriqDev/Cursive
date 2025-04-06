@@ -44,6 +44,12 @@ public class QueryService : IQueryService
         if(!string.IsNullOrEmpty(filter.Title) && !queryContext.HaveConditionById)
             query = query.Where(d => d.Title == filter.Title);
 
+        if (!string.IsNullOrEmpty(filter.Text) && !queryContext.HaveConditionById)
+            query = query.Where(d => d.Text == filter.Text);
+
+        if (!string.IsNullOrEmpty(filter.Type) && !queryContext.HaveConditionById)
+            query = query.Where(d => (int)d.Type == Convert.ToInt32(filter.Type));
+
         if(filter.UserId != Guid.Empty && !queryContext.HaveConditionById)
             query = query.Where(d => d.UserId == filter.UserId);
 
