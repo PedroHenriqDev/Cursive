@@ -25,4 +25,9 @@ public class AuthenticationService : IAuthenticationService
 
         httpContext.SetCookie(_key, tokenResponse!.Token, cookiesOptions);
     }
+
+    public void RemoveAuthSession(HttpContext httpContext)
+    {
+        httpContext.RemoveCookie(_key);
+    }
 }

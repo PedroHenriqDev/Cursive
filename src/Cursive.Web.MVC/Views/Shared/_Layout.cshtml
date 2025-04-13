@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/Cursive.Web.MVC.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body id="vmLayout">
 	<header>
 		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 			<div class="container-fluid">
@@ -25,6 +25,9 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>
+						<li class="nav-item">
+							<button class="btn nav-link text-dark" data-bs-toggle="modal" data-bs-target="#modalLogout">Logout</button>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -35,12 +38,31 @@
 			@RenderBody()
 		</main>
 	</div>
-
 	<footer class="border-top footer text-muted">
 		<div class="container">
 			&copy; 2025 - Cursive.Web.MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 		</div>
 	</footer>
+
+	<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogout" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Logout</h5>
+					<button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to end the session?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<a type="button" class="btn btn-primary" href="@Url.Action("Logout", "User")">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
@@ -56,3 +78,16 @@
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+@section scripts {
+	<script>
+		var vmLayout = new Vue({
+			el: "#vmLayout",
+			methods: {
+				openModalLogout: {
+
+				}
+			}
+		});
+	</script>
+}

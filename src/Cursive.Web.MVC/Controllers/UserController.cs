@@ -29,6 +29,14 @@ public class UserController : Controller
     [HttpGet] 
     public IActionResult Register() => View();
 
+    [HttpGet]
+    public IActionResult Logout()
+    {
+        _authService.RemoveAuthSession(HttpContext);
+
+        return View(nameof(Login));
+    }
+
     [HttpPost]
     public async Task<IActionResult> Register([FromBody] UserRequest userRequest)
     {

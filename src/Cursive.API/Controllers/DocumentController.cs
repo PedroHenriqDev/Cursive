@@ -86,6 +86,7 @@ public class DocumentController : Controller
 
     [HttpGet]
     [Route("search")]
+    [Authorize]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResponseDto<DocumentResponse>), statusCode: StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IResponseDto<DocumentResponse>>> SearchAsync([FromQuery] FilterDocumentRequest filter)

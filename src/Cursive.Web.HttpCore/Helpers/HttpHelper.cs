@@ -34,4 +34,9 @@ public static class HttpHelper
     {
         httpContext.Response.Cookies.Append(key, value, cookieOptions);
     }
+
+    public static void RemoveCookie(this HttpContext httpContext, string key)
+    {
+        httpContext.Response.Cookies.Delete(key);
+    }
 }
