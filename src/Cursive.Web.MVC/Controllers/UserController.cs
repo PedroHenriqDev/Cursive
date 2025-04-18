@@ -55,7 +55,7 @@ public class UserController : Controller
 
         if (reCaptchaResponse == null || reCaptchaResponse.Data == null) 
             return StatusCode(StatusCodes.Status500InternalServerError);
-
+        
         if (!reCaptchaResponse!.Data!.Success)
             return StatusCode(StatusCodes.Status400BadRequest, new LoginViewModel { IsReCaptchaError = true });
 
@@ -65,7 +65,7 @@ public class UserController : Controller
             return BadRequest();
 
         if(response?.Data != null && response?.StatusCode == HttpStatusCode.OK)
-            _authService.SetAuthSession(HttpContext, response.Data);
+            await _authService.SignInAsync(HttpContext, response.Data);
 
         return StatusCode((int)response!.StatusCode, new LoginViewModel { IsReCaptchaError = false});
     }

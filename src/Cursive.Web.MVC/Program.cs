@@ -15,6 +15,7 @@ public class Program
         builder.Services.AddWebClients(builder.Configuration);
         builder.Services.AddWebServices();
         builder.Services.AddDefaultCorsAllowAll();
+        builder.Services.AddCookieAuth(builder.Configuration);
 
         WebApplication app = builder.Build();
 
@@ -31,6 +32,7 @@ public class Program
 
         app.UseRouting();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(
