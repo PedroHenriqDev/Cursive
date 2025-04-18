@@ -65,7 +65,8 @@
 				formLogin: {
 					email: '',
 					password: ''
-				}
+				},
+				returnUrl: ''
 			},
 			methods: {
 				Login: async function () {
@@ -94,11 +95,18 @@
 						},
 						success: function (response){
 							console.log("Login bem-sucedido!", response);
-							window.location.href = "@Url.Action("Index", "Test")";
+							window.location.href = self.returnUrl ? self.returnUrl : "@Url.Action("Index", "Test")";
 						},
 						complete: () => this.$refs.loader.hideLoader()
 					});
+				},
+				LoadReturnUrl: function(){
+					const queryString = new URLSearchParams(window.location.search);
+					this.returnUrl = queryString.get('ReturnUrl');
 				}
+			},
+			mounted: function(){
+				this.LoadReturnUrl();
 			}
 		})
 	</script>

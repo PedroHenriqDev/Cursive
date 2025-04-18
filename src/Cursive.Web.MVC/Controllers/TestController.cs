@@ -10,5 +10,10 @@ public class TestController : Controller
     {
         return View();
     }
+
+    public IActionResult Test()
+    {
+        return View();
+    }
 }
     
