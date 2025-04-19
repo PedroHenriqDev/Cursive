@@ -12,14 +12,49 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin-bottom: 60px;
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f1f3f4; 
+    font-family: 'Inter', sans-serif;
+    overflow-y: auto;
+}
+
+#document {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.page {
+    background-color: #fff;
+    width: 800px;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80vh;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
 
 .loader-overlay {
     position: fixed;

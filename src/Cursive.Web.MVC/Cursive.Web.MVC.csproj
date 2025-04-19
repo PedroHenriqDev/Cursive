@@ -14,8 +14,4 @@
     <ProjectReference Include="..\Cursive.Shared\Cursive.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Document\" />
-  </ItemGroup>
-
 </Project>

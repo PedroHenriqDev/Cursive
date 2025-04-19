@@ -1,0 +1,19 @@
+﻿<div id="document">
+	<div class="page">
+		<p class="text-end text-muted m-2">{{ text.length }} characters</p>
+		<textarea placeholder="Enter your text..."
+				  v-model="text"></textarea>
+	</div>
+</div>
+@section scripts {
+	<script>
+		var vue = new Vue({
+			el: '#document',
+			data: {
+				text: ''
+			},
+			methods: {
+			}
+		});
+	</script>
+}
