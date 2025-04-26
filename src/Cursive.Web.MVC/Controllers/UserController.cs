@@ -15,12 +15,14 @@ public class UserController : Controller
     private readonly IUserClient _userClient;
     private readonly IAuthenticationService _authService;
     private readonly IReCaptchaClient _reCaptchaClient;
+    private readonly IEmailService _emailService;
 
-    public UserController(IUserClient userClient, IAuthenticationService authService, IReCaptchaClient reCaptchaClient)
+    public UserController(IUserClient userClient, IAuthenticationService authService, IReCaptchaClient reCaptchaClient, IEmailService emailService)
     {
         _userClient = userClient;
         _authService = authService;
         _reCaptchaClient = reCaptchaClient;
+        _emailService = emailService;
     }
 
     [HttpGet]
@@ -41,6 +43,7 @@ public class UserController : Controller
     public async Task<IActionResult> Register([FromBody] UserRequest userRequest)
     {
         IResponseDto<UserResponse>? userResponse = await _userClient.RequestToCreateAsync(userRequest);
+        var emailResp = await _emailService.SendEmail(userResponse?.Data?.Email!, $"Welcome to Cursive {userResponse?.Data?.FirstName}\r\n");
 
         if(userResponse == null)
             return StatusCode(StatusCodes.Status500InternalServerError);

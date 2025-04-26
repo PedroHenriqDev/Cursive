@@ -19,6 +19,16 @@ public class DocumentClient : IDocumentClient
         _baseApiController = configuration["httpClient:baseApiDocumentController"] ?? throw new ArgumentNullException("The url of api cannot be null.");
     }
 
+    public async Task<IResponseDto<DocumentResponse>?> CreateAsync(DocumentRequest request)
+    {
+        using(HttpClient httpClient = new HttpClient())
+        {
+            HttpResponseMessage httpResponse = await httpClient.PostAsync($"{_baseApiController}", ConvertHelper.ConvertToStringContent(request));
+
+            return await ConvertHelper.ConvertToResponseDtoAsync<DocumentResponse>(httpResponse);
+        }
+    }
+
     public async Task<IResponseDto<IEnumerable<DocumentResponse>>?> GetByUserIdAsync(Guid userId)
     {
         FilterDocumentRequest filterRequest = new FilterDocumentRequest { Id = userId };

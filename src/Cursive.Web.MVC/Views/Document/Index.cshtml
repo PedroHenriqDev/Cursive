@@ -1,10 +1,11 @@
 ﻿<div id="document">
-	<div class="page">
+	<div class="page" onkeypress="">
 		<p class="text-end text-muted m-2">{{ text.length }} characters</p>
 		<textarea placeholder="Enter your text..."
 				  v-model="text"></textarea>
 	</div>
 </div>
+
 @section scripts {
 	<script>
 		var vue = new Vue({
@@ -13,7 +14,41 @@
 				text: ''
 			},
 			methods: {
+				convertToDocumentViewModel: function(){
+					return {
+						Title: 'Document',
+						Text: this.text
+					}
+				},
+				saveDocument: function(){
+					let self = this;
+					const data = self.convertToDocumentViewModel();
+					$.ajax({
+						type: 'POST',
+						url: '@Url.Action("Save", "Document")',
+						dataType: 'json',
+						data: JSON.stringify(data),
+						contentType: 'application/json; charset=utf-8',
+						success: function(){
+
+						},
+						error: function(error){
+
+						},
+						complete: function(){
+
+						}
+					});
+				}
 			}
+		});
+
+		document.addEventListener('keydown', e => {
+		  if (e.ctrlKey && e.key === 's') {
+			e.preventDefault();
+			vue.saveDocument();
+			console.log('CTRL + S');
+		  }
 		});
 	</script>
 }

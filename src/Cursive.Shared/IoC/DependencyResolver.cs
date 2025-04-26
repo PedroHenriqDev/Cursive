@@ -46,6 +46,7 @@ public static class DependencyResolver
     {
         serviceCollection.AddScoped<IUserClient>(opt => new UserClient(configuration));
         serviceCollection.AddScoped<IReCaptchaClient, ReCaptchaClient>();
+        serviceCollection.AddScoped<IDocumentClient, DocumentClient>();
 
         return serviceCollection;
     }
