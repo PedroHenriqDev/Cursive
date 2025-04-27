@@ -1,36 +1,107 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
+/* Fonte e background gerais */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #f1f3f4; 
+    background-color: #f1f3f4;
     font-family: 'Inter', sans-serif;
     overflow-y: auto;
+    color: #212529; /* Cor padrão de texto */
 }
 
+.special-text {
+    color: #5c6ac4;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* Botões focados */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Navbar */
+header {
+    background-color: white;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar brand */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #0d6efd;
+}
+
+/* Nav Links */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: #212529;
+}
+
+/* Botões padrão */
+button, .btn {
+    font-family: 'Inter', sans-serif;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+/* Botões principais */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+/* Botões secundários */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+    .btn-secondary:hover {
+        background-color: #5c636a;
+        border-color: #565e64;
+    }
+
+/* Footer */
+footer {
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/* Estilo do "document" (área principal) */
 #document {
     display: flex;
     justify-content: center;
     padding-top: 2rem;
 }
 
+/* Estilo das páginas principais */
 .page {
     background-color: #fff;
     width: 800px;
@@ -38,9 +109,10 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
+/* Textareas */
 textarea {
     width: 100%;
     min-height: 80vh;
@@ -55,7 +127,7 @@ textarea {
     font-family: 'Inter', sans-serif;
 }
 
-
+/* Loader */
 .loader-overlay {
     position: fixed;
     top: 0;
@@ -70,13 +142,74 @@ textarea {
 }
 
 .spinner {
-    border: 8px solid #f3f3f3; 
+    border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
 }
+
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Fira Code', monospace;
+}
+
+.form-login {
+    max-width: 600px;
+    width: 100%;
+}
+
+.login-card {
+    background: #ffffff;
+    border: 1px solid #d1d9e6;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+    .login-card:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+.form-control {
+    background: #f0f2f5;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #5c6ac4;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background: #4b59b3;
+    }
+
+.text-muted {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.text-link {
+    color: #5c6ac4;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .text-link:hover {
+        text-decoration: underline;
+    }
 
 @keyframes spin {
     0% {

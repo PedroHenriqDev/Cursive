@@ -1,6 +1,10 @@
-﻿<style>
+﻿@{
+	Layout = "../Shared/_LoginLayout";
+}
+
+<style>
 	.form-register {
-		max-width: 600px;
+		max-width: 800px;
 		width: 100%
 	}
 </style>
@@ -9,7 +13,7 @@
 	<loader ref="loader"></loader>
 	<div class="card p-5 border-0 shadow-lg rounded-4" style="max-width: 450px;">
 		<div class="card-body text-center">
-			<h1 class="text-primary fw-bold mb-4">Sign Up</h1>
+			<h1 class="fw-bold mb-4 special-text">Sign Up</h1>
 			<form class="form-group form-register">
 				<div class="mb-4 text-start">
 					<label for="email" class="form-label fw-semibold">Email</label>
