@@ -11,4 +11,9 @@ public static class ClaimPrincipalExtension
         IList<Claim> authClaims = tokenService.GetAuthClaims(token);
         return authClaims.FirstOrDefault(c => c.Type == "ID")?.Value ?? string.Empty;
     }
+
+    public static string GetApiToken(this ClaimsPrincipal user)
+    {
+        return user.FindFirst("ApiToken")?.Value ?? string.Empty;
+    }
 }

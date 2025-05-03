@@ -1,8 +1,8 @@
 ﻿<div id="document">
 	<div class="page" onkeypress="">
-		<p class="text-end text-muted m-2">{{ text.length }} characters</p>
+		<p class="text-end text-muted m-2">{{ document.text.length }} characters</p>
 		<textarea placeholder="Enter your text..."
-				  v-model="text"></textarea>
+				  v-model="document.text"></textarea>
 	</div>
 </div>
 
@@ -11,14 +11,36 @@
 		var vue = new Vue({
 			el: '#document',
 			data: {
-				text: ''
+				document: {
+					id: '',
+					text: '',
+					title: ''
+				}
 			},
 			methods: {
 				convertToDocumentViewModel: function(){
 					return {
 						Title: 'Document',
-						Text: this.text
+						Text: this.document.text,
+						Type: 'Text',
 					}
+				},
+				loadDocument: function(){
+					let self = this;
+					$.ajax({
+						type: 'GET',
+						url: `@Url.Action("GetById", "Document")?documentId=${this.document.id}`,
+						dataType: 'json',
+						contentType: 'application/json; charset=utf-8',
+						success: function(response){
+							self.document.id = response.id;
+							self.document.text = response.text;
+							self.document.title= response.title;
+						},
+						error: function(){
+
+						}
+					})
 				},
 				saveDocument: function(){
 					let self = this;
@@ -39,6 +61,18 @@
 
 						}
 					});
+				},
+				getDocumentId: function(){
+					let queryString = new URLSearchParams(window.location.search);
+
+					return queryString.get('documentId');
+				}
+			},
+			mounted: function(){
+				this.document.id = this.getDocumentId();
+
+				if(this.document.id){
+					this.loadDocument();
 				}
 			}
 		});

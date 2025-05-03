@@ -32,7 +32,16 @@ public class DocumentController : Controller
     {
         request.UserId = new Guid(User.GetUserId(_tokenService));
 
-        IResponseDto<DocumentResponse>? response = await _documentClient.CreateAsync(request);
+        IResponseDto<DocumentResponse>? response = await _documentClient.CreateAsync(request, User.GetApiToken());
+
+        return StatusCode((int)response!.StatusCode, response.Data);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetById([FromQuery]Guid documentId)
+    {
+        string apiToken = User.GetApiToken();
+        IResponseDto<DocumentResponse>? response = await _documentClient.GetByIdAsync(documentId, apiToken);
 
         return StatusCode((int)response!.StatusCode, response.Data);
     }

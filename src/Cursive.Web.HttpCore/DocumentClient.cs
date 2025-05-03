@@ -1,4 +1,5 @@
-﻿using System.Xml.Schema;
+﻿using System.Net.Http.Headers;
+using System.Xml.Schema;
 using Cursive.Communication.Dtos.Interfaces;
 using Cursive.Communication.Dtos.Requests;
 using Cursive.Communication.Dtos.Responses;
@@ -19,11 +20,26 @@ public class DocumentClient : IDocumentClient
         _baseApiController = configuration["httpClient:baseApiDocumentController"] ?? throw new ArgumentNullException("The url of api cannot be null.");
     }
 
-    public async Task<IResponseDto<DocumentResponse>?> CreateAsync(DocumentRequest request)
+    public async Task<IResponseDto<DocumentResponse>?> CreateAsync(DocumentRequest request, string apiToken)
     {
         using(HttpClient httpClient = new HttpClient())
         {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+            httpClient.BaseAddress = _baseUrl;
+
             HttpResponseMessage httpResponse = await httpClient.PostAsync($"{_baseApiController}", ConvertHelper.ConvertToStringContent(request));
+
+            return await ConvertHelper.ConvertToResponseDtoAsync<DocumentResponse>(httpResponse);
+        }
+    }
+
+    public async Task<IResponseDto<DocumentResponse>?> GetByIdAsync(Guid documentId, string apiToken)
+    {
+        using(var  httpClient = new HttpClient())
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+            httpClient.BaseAddress = _baseUrl;
+            HttpResponseMessage httpResponse = await httpClient.GetAsync($"{_baseApiController}{documentId}");
 
             return await ConvertHelper.ConvertToResponseDtoAsync<DocumentResponse>(httpResponse);
         }
