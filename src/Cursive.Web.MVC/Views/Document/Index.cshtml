@@ -4,11 +4,41 @@
 		<textarea placeholder="Enter your text..."
 				  v-model="document.text"></textarea>
 	</div>
+	<div class="modal fade" id="modalDocument" tabindex="-1" role="dialog" aria-labelledby="modalDocument" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Document Title</h5>
+					<button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-4">
+						<label for="title" class="form-label fw-semibold">Title</label>
+						<input type="text" id="title" name="title" v-model="document.title"
+							   class="form-control shadow-sm"
+							   placeholder="My document" required maxlength="256" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" v-on:click="saveDocument">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section scripts {
 	<script>
+		Vue.use(Toasted, {
+			position: 'bottom-center',
+			duration: 3000
+		});
+
 		var vue = new Vue({
+		
 			el: '#document',
 			data: {
 				document: {
@@ -20,10 +50,16 @@
 			methods: {
 				convertToDocumentViewModel: function(){
 					return {
-						Title: 'Document',
+						Title: this.document.title,
 						Text: this.document.text,
 						Type: 'Text',
 					}
+				},
+				openDocumentModal: function(){
+					$("#modalDocument").modal('show');
+				},
+				closeDocumentModal: function(){
+					$("#modalDocument").modal('hide');
 				},
 				loadDocument: function(){
 					let self = this;
@@ -38,7 +74,7 @@
 							self.document.title= response.title;
 						},
 						error: function(){
-
+							self.$toasted.error("Document unavailable.");
 						}
 					})
 				},
@@ -51,15 +87,13 @@
 						dataType: 'json',
 						data: JSON.stringify(data),
 						contentType: 'application/json; charset=utf-8',
+						error: function(){
+							self.$toasted.error("An error ocurred in save document.");
+						},
 						success: function(){
-
+							self.closeDocumentModal();
+							self.$toasted.success('Document saved.');
 						},
-						error: function(error){
-
-						},
-						complete: function(){
-
-						}
 					});
 				},
 				getDocumentId: function(){
@@ -80,7 +114,12 @@
 		document.addEventListener('keydown', e => {
 		  if (e.ctrlKey && e.key === 's') {
 			e.preventDefault();
-			vue.saveDocument();
+			if(vue.document.id > 0){
+				vue.saveDocument();
+			}
+			else {
+				vue.openDocumentModal();
+			}
 			console.log('CTRL + S');
 		  }
 		});

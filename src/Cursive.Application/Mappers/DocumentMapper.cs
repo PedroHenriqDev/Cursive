@@ -17,7 +17,7 @@ public static class DocumentMapper
         else
             documentType = EnumUtils.GetEnumByName<EDocumentType>(request.Type);
 
-        return new Document(request.Type, request.Text, documentType, request.UserId);
+        return new Document(request.Title, request.Text, documentType, request.UserId);
     }
 
     public static void MapToDocument(this DocumentRequest request, Document document)
