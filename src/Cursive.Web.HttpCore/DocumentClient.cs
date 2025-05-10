@@ -58,4 +58,15 @@ public class DocumentClient : IDocumentClient
             return await ConvertHelper.ConvertToResponseDtoAsync<IEnumerable<DocumentResponse>>(httpResponse);
         }
     }
+
+    public async Task<IResponseDto<DocumentResponse>?> UpdateAsync(DocumentRequest documentRequest, string apiToken)
+    {
+        using(var httpClient = new HttpClient())
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+            httpClient.BaseAddress = _baseUrl;
+            HttpResponseMessage httpResponse = await httpClient.PutAsync($"{_baseApiController}{documentRequest.Id}", ConvertHelper.ConvertToStringContent(documentRequest));
+            return await ConvertHelper.ConvertToResponseDtoAsync<DocumentResponse>(httpResponse);
+        }
+    }
 }

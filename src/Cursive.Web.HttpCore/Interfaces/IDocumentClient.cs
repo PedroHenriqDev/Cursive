@@ -7,6 +7,7 @@ namespace Cursive.Web.HttpCore.Interfaces;
 public interface IDocumentClient
 {
     Task<IResponseDto<IEnumerable<DocumentResponse>>?> GetByUserIdAsync(Guid userId);
+    Task<IResponseDto<DocumentResponse>?> UpdateAsync(DocumentRequest documentRequest, string apiToken);
     Task<IResponseDto<DocumentResponse>?> CreateAsync(DocumentRequest request, string apiToken);
     Task<IResponseDto<DocumentResponse>?> GetByIdAsync(Guid documentId, string apiToken);
 }

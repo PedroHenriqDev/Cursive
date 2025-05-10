@@ -50,6 +50,7 @@
 			methods: {
 				convertToDocumentViewModel: function(){
 					return {
+						Id: this.document.id,
 						Title: this.document.title,
 						Text: this.document.text,
 						Type: 'Text',
@@ -75,6 +76,23 @@
 						},
 						error: function(){
 							self.$toasted.error("Document unavailable.");
+						}
+					})
+				},
+				updateDocument: function(){
+					let self = this;
+					const data = self.convertToDocumentViewModel();
+					$.ajax({
+						type: 'PUT',
+						url: '@Url.Action("Update", "Document")',
+						dataType: 'JSON',
+						contentType: 'application/json; charset=utf-8',
+						data: JSON.stringify(data),
+						error: function(){
+							self.$toasted.success('An error ocurred in update document.');
+						},
+						success: function(){
+							self.$toasted.success('Document updated.');
 						}
 					})
 				},
@@ -114,8 +132,8 @@
 		document.addEventListener('keydown', e => {
 		  if (e.ctrlKey && e.key === 's') {
 			e.preventDefault();
-			if(vue.document.id > 0){
-				vue.saveDocument();
+			if(vue.document.id){
+				vue.updateDocument();
 			}
 			else {
 				vue.openDocumentModal();

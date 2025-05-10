@@ -37,7 +37,6 @@ public class DocumentController : Controller
             return BadRequest();
 
         IResponseDto<DocumentResponse> response = await _documentService.CreateAsync(request);
-
         return StatusCode((int)response.StatusCode, response);
     }
 

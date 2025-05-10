@@ -37,6 +37,16 @@ public class DocumentController : Controller
         return StatusCode((int)response!.StatusCode, response.Data);
     }
 
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] DocumentRequest request)
+    {
+        request.UserId = new Guid(User.GetUserId(_tokenService));
+
+        IResponseDto<DocumentResponse>? response = await _documentClient.UpdateAsync(request, User.GetApiToken());
+
+        return StatusCode((int)response!.StatusCode, response.Data);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetById([FromQuery]Guid documentId)
     {
