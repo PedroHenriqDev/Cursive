@@ -1,8 +1,23 @@
-﻿<div id="document">
+﻿<style>
+	v-cloak {
+		display: none;
+	}
+
+	.pointer{
+		cursor: pointer;
+	}
+</style>
+
+<div id="document" v-cloak>
 	<div class="page" onkeypress="">
+		<div title="Rename title" id="edit-options" v-if="document.id">
+			<a class="text-end text-muted m-2 pointer" @@click="openDocumentModal"><i class='bx bx-rename'></i></a>
+		</div>
 		<p class="text-end text-muted m-2">{{ document.text.length }} characters</p>
-		<textarea placeholder="Enter your text..."
-				  v-model="document.text"></textarea>
+		<div>
+			<textarea placeholder="Enter your text..."
+					  v-model="document.text"></textarea>
+		</div>
 	</div>
 	<div class="modal fade" id="modalDocument" tabindex="-1" role="dialog" aria-labelledby="modalDocument" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -23,7 +38,8 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" v-on:click="saveDocument">Save</button>
+					<button v-if="document.id" type="button" class="btn btn-primary" v-on:click="updateDocument">Rename</button>
+					<button v-else type="button" class="btn btn-primary" v-on:click="saveDocument">Save</button>
 				</div>
 			</div>
 		</div>
@@ -38,7 +54,7 @@
 		});
 
 		var vue = new Vue({
-		
+
 			el: '#document',
 			data: {
 				document: {
