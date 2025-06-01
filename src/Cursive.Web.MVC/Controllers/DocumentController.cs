@@ -47,8 +47,6 @@ public class DocumentController : Controller
         return StatusCode((int)response!.StatusCode, response.Data);
     }
 
-    [HttpPatch]
-
     [HttpGet]
     public async Task<IActionResult> GetById([FromQuery]Guid documentId)
     {
