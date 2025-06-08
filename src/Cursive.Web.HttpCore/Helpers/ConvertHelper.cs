@@ -30,12 +30,15 @@ public static class ConvertHelper
             return null;
         }
     }
-
     public static string ConvertToQueryString<T>(T obj)
     {
-         return $"?{string.Format("&", typeof(T)
-             .GetProperties()
-             .Where(p => p.GetValue(obj) != null)
-             .Select(p => $"{p.Name}={p.GetValue(obj)}"))}";
-    } 
+        var properties = typeof(T)
+            .GetProperties()
+            .Where(p => p.GetValue(obj) != null)
+            .Select(p => $"{Uri.EscapeDataString(p.Name)}={Uri.EscapeDataString(p.GetValue(obj)!.ToString()!)}");
+
+        return properties.Any()
+            ? "?" + string.Join("&", properties)
+            : string.Empty;
+    }
 }

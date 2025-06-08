@@ -1,0 +1,78 @@
+﻿<style>
+	.document-card {
+		margin: 1rem 0;
+		padding: 1rem;
+		border: 1px solid #e0e0e0;
+		border-radius: 8px;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		background-color: #fff;
+		transition: transform 0.2s;
+	}
+
+		.document-card:hover {
+			transform: scale(1.01);
+		}
+
+	.card-title {
+		font-size: 1.25rem;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+		color: #333;
+	}
+
+	.card-text {
+		color: #555;
+		font-size: 0.95rem;
+		line-height: 1.4;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3; /* número de linhas visíveis */
+		-webkit-box-orient: vertical;
+	}
+</style>
+
+
+<div id="app">
+	<div v-for="document in documents" class="card card-shadow document-card">
+		<div class="card-body">
+			<h5 class="card-title">{{ document.Title }}</h5>
+			<p class="card-text">{{ document.Text }}</p>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		Vue.use(Toasted, {
+			position: 'bottom-center',
+			duration: 3000
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				documents: []
+			},
+			methods: {
+				loadDocuments: function(){
+					let _this = this;
+					$.ajax({
+						url: '@Url.Action("GetAllBySession", "Document")',
+						dataType: 'JSON',
+						type: 'GET',
+						error: function(error){
+							console.log(error);
+						},
+						success: function(response){
+							 _this.documents = response;
+						}
+					});
+				}
+			},
+			mounted: function(){
+				this.loadDocuments();
+			}
+		});
+	</script>
+}

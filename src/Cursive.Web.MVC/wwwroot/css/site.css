@@ -8,6 +8,10 @@ html {
     }
 }
 
+[v-cloal] {
+    display: none;
+}
+
 /* Fonte e background gerais */
 html, body {
     margin: 0;

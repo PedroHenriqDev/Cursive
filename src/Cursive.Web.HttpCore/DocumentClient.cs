@@ -45,15 +45,14 @@ public class DocumentClient : IDocumentClient
         }
     }
 
-    public async Task<IResponseDto<IEnumerable<DocumentResponse>>?> GetByUserIdAsync(Guid userId)
+    public async Task<IResponseDto<IEnumerable<DocumentResponse>>?> GetByUserIdAsync(Guid userId, string apiToken)
     {
-        FilterDocumentRequest filterRequest = new FilterDocumentRequest { Id = userId };
-
         using(HttpClient httpClient = new HttpClient())
         {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
             httpClient.BaseAddress = _baseUrl;
 
-            HttpResponseMessage httpResponse = await httpClient.GetAsync($"{_baseApiController}search{ConvertHelper.ConvertToQueryString(filterRequest)}");
+            HttpResponseMessage httpResponse = await httpClient.GetAsync($"{_baseApiController}search?userId={userId}");
 
             return await ConvertHelper.ConvertToResponseDtoAsync<IEnumerable<DocumentResponse>>(httpResponse);
         }

@@ -30,7 +30,7 @@ public class DocumentController : Controller
     [HttpPost]
     public async Task<IActionResult> Save([FromBody] DocumentRequest request)
     {
-        request.UserId = new Guid(User.GetUserId(_tokenService));
+        request.UserId = User.GetUserId(_tokenService);
 
         IResponseDto<DocumentResponse>? response = await _documentClient.CreateAsync(request, User.GetApiToken());
 
@@ -40,9 +40,17 @@ public class DocumentController : Controller
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] DocumentRequest request)
     {
-        request.UserId = new Guid(User.GetUserId(_tokenService));
+        request.UserId = User.GetUserId(_tokenService);
 
         IResponseDto<DocumentResponse>? response = await _documentClient.UpdateAsync(request, User.GetApiToken());
+
+        return StatusCode((int)response!.StatusCode, response.Data);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllBySession()
+    {
+        IResponseDto<IEnumerable<DocumentResponse>>? response = await _documentClient.GetByUserIdAsync(User.GetUserId(_tokenService), User.GetApiToken());
 
         return StatusCode((int)response!.StatusCode, response.Data);
     }

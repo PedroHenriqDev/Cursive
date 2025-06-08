@@ -5,11 +5,11 @@ namespace Cursive.Web.MVC.Extensions;
 
 public static class ClaimPrincipalExtension
 {
-    public static string GetUserId(this ClaimsPrincipal claimsPrincipal, ITokenService tokenService)
+    public static Guid GetUserId(this ClaimsPrincipal claimsPrincipal, ITokenService tokenService)
     {
         string token = claimsPrincipal.FindFirst("ApiToken")?.Value ?? string.Empty;
         IList<Claim> authClaims = tokenService.GetAuthClaims(token);
-        return authClaims.FirstOrDefault(c => c.Type == "ID")?.Value ?? string.Empty;
+        return new Guid(authClaims.FirstOrDefault(c => c.Type == "ID")?.Value ?? Guid.Empty.ToString());
     }
 
     public static string GetApiToken(this ClaimsPrincipal user)
